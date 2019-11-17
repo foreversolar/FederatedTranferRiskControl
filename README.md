@@ -68,16 +68,29 @@ sklearn
 
 ## CompanyPredict
 
+**Company_predict.py** : 预测文件，直接运行即可。模型需要提前从网盘中下载，环境需要是paddle1.5(1.6还没搞懂为什么不行，貌似你们改了接口。)
+
+**Company_train.py**：数据集经过百度API的知识图谱实体标注进行过处理，使用ERNIE+BiLstm/GRU进行finetune训练。
+
+**models/Company**：训练好的模型
+
 # 项目地址集合
 
 ## AISTUDIO
 
 - 千信智服-产品分析：<https://aistudio.baidu.com/aistudio/projectdetail/125605>
 - 千信智服-团队分析：<https://aistudio.baidu.com/aistudio/projectdetail/180911>
+- 千信智服-公司分析：https://aistudio.baidu.com/aistudio/projectdetail/118535
 
 ## 产品网页地址
 
 http://qianxin.xixfeng.cn/
+
+点击**产品使用**进入系统
+
+测试账号：17381589960
+
+账号密码：123
 
 ## 模型地址
 
