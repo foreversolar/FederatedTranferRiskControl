@@ -52,7 +52,7 @@ sklearn
 
 ## ProductPredict
 
-**Product_predict.py** : 预测文件，直接运行即可。模型需要提前从网盘中下载，环境需要是paddle1.5(1.6还没搞懂为什么不行，貌似你们改了接口。)
+**Product_predict.py** : 预测文件，直接运行即可。·模型需要提前从网盘中下载，环境需要是paddle1.5(1.6还没搞懂为什么不行，貌似你们改了接口。)
 
 **Product_train.py**：数据集经过百度API的知识图谱实体标注进行过处理，使用ERNIE+BiLstm/GRU进行finetune训练。
 
@@ -95,3 +95,4 @@ http://qianxin.xixfeng.cn/
 ## 模型地址
 
 models/Product: 放入：https://pan.baidu.com/s/1xUjlnnukI_QXb-Q5V7Xi4g
+
