@@ -1,0 +1,829 @@
+blocks {
+  idx: 0
+  parent_idx: -1
+  vars {
+    name: "lstm_0.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "learning_rate_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "learning_rate_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.10000000149011612
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 8
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 16
+      longs: 8
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.5
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.5
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+      longs: 112
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 16
+      longs: 64
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.273861289024353
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.273861289024353
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 64
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1384, in get_startup_program\n    attrs=op.all_attrs())\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 184, in _build_server_programs_for_job\n    startup_prog = transpiler.get_startup_program(endpoint, main_prog)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+      longs: 64
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.3038218021392822
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.3038218021392822
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+  }
+}
+version {
+  version: 1006001
+}

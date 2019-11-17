@@ -1,0 +1,981 @@
+blocks {
+  idx: 0
+  parent_idx: -1
+  vars {
+    name: "fc_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "__control_var@0.74927267624481"
+    type {
+      type: LOD_TENSOR
+    }
+  }
+  vars {
+    name: "lstm_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "learning_rate_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+        }
+      }
+    }
+    persistable: true
+  }
+  ops {
+    outputs {
+      parameter: "Out"
+      arguments: "learning_rate_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 189, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2303, in create_var\n    kwargs[\'initializer\'](var, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 397, in set_variable_initializer\n    initializer=initializer)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/tensor.py\", line 147, in create_global_var\n    value=float(value), force_cpu=force_cpu))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/optimizer.py\", line 264, in _create_global_learning_rate\n    persistable=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/optimizer.py\", line 412, in _create_optimization_pass\n    self._create_global_learning_rate()\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/optimizer.py\", line 590, in apply_gradients\n    optimize_ops = self._create_optimization_pass(params_grads)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/optimizer.py\", line 620, in apply_optimize\n    optimize_ops = self.apply_gradients(params_grads)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/optimizer.py\", line 685, in minimize\n    loss, startup_program=startup_program, params_grads=params_grads)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/dygraph/base.py\", line 78, in __impl__\n    return func(*args, **kwargs)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/wrapped_decorator.py\", line 25, in __impl__\n    return wrapped_func(*args, **kwargs)\n"
+      strings: "  File \"</home/hoy/.local/lib/python3.6/site-packages/decorator.py:decorator-gen-36>\", line 2, in minimize\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 150, in minimize\n    optimizer.minimize(losses[0])\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 125, in generate_fl_job\n    fl_strategy.minimize(self._optimizer, self._losses)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.10000000149011612
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 189, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper.py\", line 128, in append_bias_op\n    attr=bias_attr, shape=size, dtype=input_var.dtype, is_bias=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 397, in fc\n    pre_activation = helper.append_bias_op(pre_bias, dim_start=num_flatten_dims)\n"
+      strings: "  File \"1.py\", line 25, in lr_network\n    self.predict = fluid.layers.fc(input=self.lstm_max_tanh, size=self.hid_dim2, act=\'tanh\')\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 8
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 16
+      longs: 8
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.5
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.5
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 578, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 376, in fc\n    attr=param_attr, shape=param_shape, dtype=dtype, is_bias=False)\n"
+      strings: "  File \"1.py\", line 25, in lr_network\n    self.predict = fluid.layers.fc(input=self.lstm_max_tanh, size=self.hid_dim2, act=\'tanh\')\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+  }
+  ops {
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 189, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 812, in dynamic_lstm\n    attr=helper.bias_attr, shape=bias_size, dtype=dtype, is_bias=True)\n"
+      strings: "  File \"1.py\", line 18, in lr_network\n    self.lstm_h, c = fluid.layers.dynamic_lstm(input=self.fc0, size=self.hid_dim, is_reverse=False)\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+      longs: 112
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 16
+      longs: 64
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.273861289024353
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.273861289024353
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 578, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 807, in dynamic_lstm\n    attr=helper.param_attr, shape=[size, 4 * size], dtype=dtype)\n"
+      strings: "  File \"1.py\", line 18, in lr_network\n    self.lstm_h, c = fluid.layers.dynamic_lstm(input=self.fc0, size=self.hid_dim, is_reverse=False)\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+  }
+  ops {
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.b_0"
+    }
+    type: "fill_constant"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 189, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper.py\", line 128, in append_bias_op\n    attr=bias_attr, shape=size, dtype=input_var.dtype, is_bias=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 397, in fc\n    pre_activation = helper.append_bias_op(pre_bias, dim_start=num_flatten_dims)\n"
+      strings: "  File \"1.py\", line 17, in lr_network\n    self.fc0 = fluid.layers.fc(input=self.inputs, size=self.hid_dim)\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "force_cpu"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "value"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 64
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "ShapeTensor"
+    }
+    inputs {
+      parameter: "ShapeTensorList"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.w_0"
+    }
+    type: "uniform_random"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "diag_val"
+      type: FLOAT
+      f: 1.0
+    }
+    attrs {
+      name: "shape"
+      type: LONGS
+      longs: 1
+      longs: 64
+    }
+    attrs {
+      name: "max"
+      type: FLOAT
+      f: 0.3038218021392822
+    }
+    attrs {
+      name: "seed"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "dtype"
+      type: INT
+      i: 5
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "min"
+      type: FLOAT
+      f: -0.3038218021392822
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2528, in _prepend_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/initializer.py\", line 578, in __call__\n    stop_gradient=True)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2410, in create_parameter\n    initializer(param, self)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layer_helper_base.py\", line 330, in create_parameter\n    **attr._to_kwargs(with_initializer=True))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/layers/nn.py\", line 376, in fc\n    attr=param_attr, shape=param_shape, dtype=dtype, is_bias=False)\n"
+      strings: "  File \"1.py\", line 17, in lr_network\n    self.fc0 = fluid.layers.fc(input=self.inputs, size=self.hid_dim)\n"
+      strings: "  File \"1.py\", line 36, in <module>\n    model.lr_network()\n"
+    }
+    attrs {
+      name: "diag_num"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "diag_step"
+      type: INT
+      i: 0
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.b_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.w_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.b_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.w_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.b_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.w_0"
+    }
+    type: "recv"
+    attrs {
+      name: "varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "recv_varnames"
+      type: STRINGS
+    }
+    attrs {
+      name: "with_barrier"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 964, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "do_not_run"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "epmap"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "__control_var@0.74927267624481"
+    }
+    type: "fetch_barrier"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 976, in _get_trainer_startup_program\n    RPC_OP_ROLE_ATTR_NAME: RPC_OP_ROLE_ATTR_VALUE\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 851, in transpile\n    self._get_trainer_startup_program(recv_vars=recv_vars, eplist=eplist)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 163, in _build_trainer_program_for_job\n    startup_program=startup_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 136, in generate_fl_job\n    job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 4
+    }
+    attrs {
+      name: "endpoints"
+      type: STRINGS
+      strings: "127.0.0.1:8181"
+    }
+    attrs {
+      name: "trainer_id"
+      type: INT
+      i: 0
+    }
+  }
+}
+version {
+  version: 1006001
+}

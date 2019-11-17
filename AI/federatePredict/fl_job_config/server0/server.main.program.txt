@@ -1,0 +1,1400 @@
+blocks {
+  idx: 0
+  parent_idx: -1
+  vars {
+    name: "lstm_0.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "lstm_0.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_1.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_0.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "lstm_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_0.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "lstm_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "learning_rate_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+        }
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_0.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_1.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 8
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "lstm_0.b_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 112
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_0.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 1
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  vars {
+    name: "fc_1.w_0@GRAD.trainer_0"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "fc_1.w_0@GRAD.trainer_1"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 8
+        }
+      }
+    }
+    persistable: false
+  }
+  vars {
+    name: "lstm_0.w_0@GRAD"
+    type {
+      type: LOD_TENSOR
+      lod_tensor {
+        tensor {
+          data_type: FP32
+          dims: 16
+          dims: 64
+        }
+        lod_level: 0
+      }
+    }
+    persistable: true
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_0.b_0@GRAD.trainer_0"
+      arguments: "fc_0.b_0@GRAD.trainer_1"
+      arguments: "fc_0.w_0@GRAD.trainer_0"
+      arguments: "fc_0.w_0@GRAD.trainer_1"
+      arguments: "fc_1.b_0@GRAD.trainer_0"
+      arguments: "fc_1.b_0@GRAD.trainer_1"
+      arguments: "fc_1.w_0@GRAD.trainer_0"
+      arguments: "fc_1.w_0@GRAD.trainer_1"
+      arguments: "lstm_0.b_0@GRAD.trainer_0"
+      arguments: "lstm_0.b_0@GRAD.trainer_1"
+      arguments: "lstm_0.w_0@GRAD.trainer_0"
+      arguments: "lstm_0.w_0@GRAD.trainer_1"
+    }
+    type: "listen_and_serv"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "checkpint_block_id"
+      type: INT
+      i: -1
+    }
+    attrs {
+      name: "prefetch_var_name_to_block_id"
+      type: STRINGS
+    }
+    attrs {
+      name: "dc_asgd"
+      type: BOOLEAN
+      b: false
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1263, in get_pserver_program\n    attrs=attrs)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "pserver_id"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "grad_to_block_id"
+      type: STRINGS
+      strings: "lstm_0.w_0@GRAD:6"
+      strings: "lstm_0.b_0@GRAD:5"
+      strings: "fc_0.b_0@GRAD:1"
+      strings: "fc_1.w_0@GRAD:4"
+      strings: "fc_1.b_0@GRAD:3"
+      strings: "fc_0.w_0@GRAD:2"
+    }
+    attrs {
+      name: "optimize_blocks"
+      type: BLOCKS
+      blocks_idx: 1
+      blocks_idx: 2
+      blocks_idx: 3
+      blocks_idx: 4
+      blocks_idx: 5
+      blocks_idx: 6
+    }
+    attrs {
+      name: "Fanin"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "endpoint"
+      type: STRING
+      s: "127.0.0.1:8181"
+    }
+    attrs {
+      name: "sparse_grad_to_param"
+      type: STRINGS
+    }
+    attrs {
+      name: "sync_mode"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "lr_decay_block_id"
+      type: INT
+      i: -1
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+  }
+}
+blocks {
+  idx: 1
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_0.b_0@GRAD.trainer_0"
+      arguments: "fc_0.b_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.b_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_0.b_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.b_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "fc_0.b_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "fc_0.b_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "fc_0.b_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "fc_0.b_0"
+      strings: "fc_0.b_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+blocks {
+  idx: 2
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_0.w_0@GRAD.trainer_0"
+      arguments: "fc_0.w_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.w_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_0.w_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_0.w_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "fc_0.w_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "fc_0.w_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "fc_0.w_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "fc_0.w_0"
+      strings: "fc_0.w_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+blocks {
+  idx: 3
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_1.b_0@GRAD.trainer_0"
+      arguments: "fc_1.b_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.b_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_1.b_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.b_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "fc_1.b_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "fc_1.b_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "fc_1.b_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "fc_1.b_0"
+      strings: "fc_1.b_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+blocks {
+  idx: 4
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_1.w_0@GRAD.trainer_0"
+      arguments: "fc_1.w_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.w_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "fc_1.w_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "fc_1.w_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "fc_1.w_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "fc_1.w_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "fc_1.w_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "fc_1.w_0"
+      strings: "fc_1.w_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+blocks {
+  idx: 5
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "lstm_0.b_0@GRAD.trainer_0"
+      arguments: "lstm_0.b_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.b_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "lstm_0.b_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.b_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "lstm_0.b_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "lstm_0.b_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "lstm_0.b_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "lstm_0.b_0"
+      strings: "lstm_0.b_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+blocks {
+  idx: 6
+  parent_idx: 0
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "lstm_0.w_0@GRAD.trainer_0"
+      arguments: "lstm_0.w_0@GRAD.trainer_1"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.w_0@GRAD"
+    }
+    type: "sum"
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2075, in _append_pserver_grad_merge_ops\n    attrs={\"use_mkldnn\": False})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "use_mkldnn"
+      type: BOOLEAN
+      b: false
+    }
+  }
+  ops {
+    inputs {
+      parameter: "X"
+      arguments: "lstm_0.w_0@GRAD"
+    }
+    outputs {
+      parameter: "Out"
+      arguments: "lstm_0.w_0@GRAD"
+    }
+    type: "scale"
+    attrs {
+      name: "bias_after_scale"
+      type: BOOLEAN
+      b: true
+    }
+    attrs {
+      name: "bias"
+      type: FLOAT
+      f: 0.0
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+    }
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2080, in _append_pserver_grad_merge_ops\n    attrs={\"scale\": 1.0 / float(self.trainer_num)})\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1188, in get_pserver_program\n    grad_to_block_id, self.origin_program)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 0
+    }
+    attrs {
+      name: "scale"
+      type: FLOAT
+      f: 0.5
+    }
+  }
+  ops {
+    inputs {
+      parameter: "Grad"
+      arguments: "lstm_0.w_0@GRAD"
+    }
+    inputs {
+      parameter: "LearningRate"
+      arguments: "learning_rate_0"
+    }
+    inputs {
+      parameter: "Param"
+      arguments: "lstm_0.w_0"
+    }
+    outputs {
+      parameter: "ParamOut"
+      arguments: "lstm_0.w_0"
+    }
+    type: "dpsgd"
+    attrs {
+      name: "op_callstack"
+      type: STRINGS
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/framework.py\", line 2459, in append_op\n    attrs=kwargs.get(\"attrs\", None))\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 2229, in _append_pserver_ops\n    attrs=opt_op.all_attrs())\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1125, in __append_optimize_op__\n    sparse_grad_to_param)\n"
+      strings: "  File \"/home/hoy/.local/lib/python3.6/site-packages/paddle/fluid/transpiler/distribute_transpiler.py\", line 1200, in get_pserver_program\n    lr_ops)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/strategy/fl_strategy_base.py\", line 183, in _build_server_programs_for_job\n    main_prog = transpiler.get_pserver_program(endpoint)\n"
+      strings: "  File \"/usr/local/lib/python3.6/dist-packages/paddle_fl-0.1.0-py3.6.egg/paddle_fl/core/master/job_generator.py\", line 143, in generate_fl_job\n    startup_program=startup_program, job=local_job)\n"
+      strings: "  File \"1.py\", line 66, in <module>\n    strategy, server_endpoints=endpoints, worker_num=2, output=output)\n"
+    }
+    attrs {
+      name: "op_namescope"
+      type: STRING
+      s: "/"
+    }
+    attrs {
+      name: "op_role_var"
+      type: STRINGS
+      strings: "lstm_0.w_0"
+      strings: "lstm_0.w_0@GRAD.trainer_0"
+    }
+    attrs {
+      name: "op_role"
+      type: INT
+      i: 2
+    }
+    attrs {
+      name: "sigma"
+      type: FLOAT
+      f: 193.79220581054688
+    }
+    attrs {
+      name: "batch_size"
+      type: FLOAT
+      f: 64.0
+    }
+    attrs {
+      name: "clip"
+      type: FLOAT
+      f: 4.0
+    }
+  }
+}
+version {
+  version: 1006001
+}
