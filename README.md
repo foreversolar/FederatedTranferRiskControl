@@ -65,8 +65,8 @@ sklearn
 
 ## AISTUDIO
 
-千信智服-产品分析：<https://aistudio.baidu.com/aistudio/projectdetail/125605>
-千信智服-团队分析：<https://aistudio.baidu.com/aistudio/projectdetail/180911>
+- 千信智服-产品分析：<https://aistudio.baidu.com/aistudio/projectdetail/125605>
+- 千信智服-团队分析：<https://aistudio.baidu.com/aistudio/projectdetail/180911>
 
 ## 产品网页地址
 
