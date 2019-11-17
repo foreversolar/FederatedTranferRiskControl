@@ -1,0 +1,121 @@
+﻿
+var LoginCheckStr = "社会信用代码第9-17位或手机号码";
+   (function () {
+       //if (ShowStatus == "0") { LoginCheckStr = ""; }
+       var loginBox = {
+           box: null,
+           getUserInfo: function () {
+               var user = {};
+               var username = $("#login_username").val();
+               if (!username || username == LoginCheckStr) {
+                   alert("用户名不能为空");
+                   return null;
+               }
+               var password = $("#login_password").val();
+               if (!password) {
+                   alert("密码不能为空");
+                   return null;
+               }
+               else if (password.length < 6) {
+                   alert("原申报系统中密码少于6位的用户，密码已修改为六个6，请登陆后自行进行修改");
+               }
+               user.username = username;
+               user.password = password;
+               return user;
+           },
+           show: function (eeee) {
+               var hrefurl = "login.htm";
+               Boxy.load("/Web/template/" + hrefurl + "?rnd=" + Math.random(), {
+                   modal: true,
+                   afterShow: function () {
+                       loginBox.box = this;
+                       $("#btn_login_cancel").click(function (e) {
+                           loginBox.box.hide();
+                       });
+                       $("#login_close").click(function (e) {
+                           loginBox.box.hide();
+                       });
+                       $("#login_username").focus(function (e) {
+                           if ($("#login_username").val() == LoginCheckStr) {
+                               $("#login_username").val("");
+                           }
+                           $("#TiShi").show();
+                       });
+                       $("#btn_login_ok").on("click", function (e) {
+                           var loginUser = loginBox.getUserInfo();
+                           if (loginUser != null) {
+                               $(".input-wrap").hide();
+                               $("#jzmms").hide();
+                               $(".forgetpassword").hide();
+                               $(".login_btn_wrap").hide();
+                               $("#deng").show();
+
+                               if ($("#jzmms").find("input[type=checkbox]")[0].checked == true) {
+                                   var Days = 3000;
+                                   var exp = new Date();
+                                   exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                                   document.cookie = "JZlogin_username=" + escape($("#login_username").val()) + ";expires=" + exp.toGMTString();
+                               }
+                               var _Status = '';
+                               var loginUser_username = loginUser.username;
+                               if (loginUser.username.indexOf('@') < 0) {
+                                   loginUser_username = loginUser.username.replace('-', '');
+                               }
+                               $.get("/Web/NewAajx.ashx?" + Math.random(), { Action: 'Login', User: loginUser_username, Pwd: loginUser.password }, function (aa) {
+
+                                   var objs = eval('(' + aa + ')');
+                                   if (objs.Type == "1") {
+                                       if (objs.newusertype == "99") {
+                                           window.location.href = "/admin/index.aspx";
+                                       }
+                                       else {
+                                           if (eeee == "" || eeee == null || eeee == 'undefined') {
+                                               eeee = '/master/index.html';
+                                           }
+                                           window.location.href = eeee;
+                                       }
+                                   }
+                                   else {
+                                       if(objs.Type == "7")
+                                       {
+                                         alert("当前账号因多次输入错误密码被冻结，请第二天再登陆");
+                                       }
+                                       else
+                                       {
+                                          if(confirm("登陆密码错误，是否确认要找回密码？"))
+                                          {
+                                           location.href="/register/retrieve.html";
+                                          }
+                                       }
+                                       $(".input-wrap").show();
+                                       $("#jzmms").show();
+                                       $(".forgetpassword").show();
+                                       $(".login_btn_wrap").show();
+                                       $("#deng").hide();
+                                   }
+                               });
+                           }
+                       });
+                       if (getCookie('JZlogin_username') != "") {
+                           $("#login_username").val(getCookie('JZlogin_username'));
+                           $("#jzmms").find("input[type=checkbox]")[0].checked = true;
+                       }
+                   }
+               });
+           }
+       };
+       window.loginBox = loginBox;
+   })();
+
+   function MouseLeft(_val) {
+       if ($("#login_username").val() == "") {
+           $("#login_username").val(LoginCheckStr);
+       }
+       $("#TiShi").hide();
+   }
+
+   function WenJianXzaiA() {
+       $.get("/Web/V2Aajx.ashx?" + Math.random(), { Action: 'WentJianXZADD' }, function (aa) {
+           window.location.href = "/index.html";
+      });
+   }

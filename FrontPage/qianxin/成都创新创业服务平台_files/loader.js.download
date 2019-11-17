@@ -1,0 +1,519 @@
+﻿function Loadhref(_url) {
+    if (_url.indexOf('?') >= 0) {
+        _url += "&"+Math.random()+"";
+    }
+    else {
+        _url += "?" + Math.random() + "";
+    }
+    location.href = _url;
+}
+function isValidOrgXyCode(Code) {
+    try {
+        //18位校验及大写校验
+        if ((Code.length != 18)) {
+            return false;
+        }
+        else {
+            var Ancode; //统一社会信用代码的每一个值
+            var Ancodevalue; //统一社会信用代码每一个值的权重
+            var total = 0;
+            var weightedfactors = [1, 3, 9, 27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10, 30, 28];
+            var str = "0123456789ABCDEFGHJKLMNPQRTUWXY";
+            //不用I、O、S、V、Z
+            for (var i = 0; i < Code.length - 1; i++) {
+                Ancode = Code.substr(i, 1);
+                Ancodevalue = str.indexOf(Ancode);
+                total = total + Ancodevalue * weightedfactors[i];
+                //权重与加权因子相乘之和
+            }
+            var logiccheckcode = 31 - total % 31;
+            if (logiccheckcode == 31) {
+                logiccheckcode = 0;
+            }
+            var Str = "0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,T,U,W,X,Y";
+            var _Yzlogiccheckcode = Str.split(',')[logiccheckcode];
+            var checkcode = Code.substr(17, 1);
+            if (_Yzlogiccheckcode != checkcode) {
+                return false;
+            }
+            else {
+            }
+            return true;
+        }
+    }
+    catch (e) { return false; }
+}
+function isValidOrgCode(orgCode) {
+    if (orgCode == null) return false;
+    orgCode = orgCode.toUpperCase();
+    var Special_chars = "~!@#$%^&()_+`-={}|\":>?<,./;'[]\\";
+    var mcSpecial_chars = "~!@#$%^&_`={}|\":?/;'[]\\";
+    var mySpecial_chars = "~!@#$%^&_`={}|\":?/;'\\";
+    var strtit0 = "", strtit1 = "";
+    var strtit2 = "", strtit3 = "";
+    var lastxzqh = "";
+    //alert("xzqhName2 " + xzqh_name2);
+    //===校验按机构代码查询＝＝＝＝＝
+    var strtitX = toDBC(orgCode);
+    if ((strtitX.length > 0 && strtitX.length < 9)) {
+        return false;
+    }
+    var invalidChars = "";
+    for (i = 0; i < strtitX.length; i++) {
+        var aChar = strtitX.substring(i, i + 1);
+        if (aChar != "-") {
+            if (isNaN(aChar)) {
+                if ((aChar.charCodeAt(0) < 65 || (aChar.charCodeAt(0) > 90 && aChar.charCodeAt(0) < 97) || aChar.charCodeAt(0) > 122)) {
+                    invalidChars = invalidChars + aChar;
+                }
+            } else {
+                if (aChar == " " || aChar == "　") {
+                    invalidChars = invalidChars + aChar;
+                }
+            }
+        }
+    }
+    if (invalidChars.length > 0) {
+        return false;
+    }
+    var strtit0 = strtitX;
+    if (strtit0.length != 9) {
+        return false;
+    }
+    if ((strtit0.length > 0) && (!codeCheck(strtit0))) {
+        return false;
+    }
+    return true;
+}
+function toDBC(Str) {
+    var DBCStr = "";
+    for (var i = 0; i < Str.length; i++) {
+        var c = Str.charCodeAt(i);
+        if (c == 12288) {
+            DBCStr += String.fromCharCode(32);
+            continue;
+        }
+        if (c > 65280 && c < 65375) {
+            DBCStr += String.fromCharCode(c - 65248);
+            continue;
+        }
+        DBCStr += String.fromCharCode(c);
+    }
+    return DBCStr;
+}
+function codeCheck(code) {
+    var codeArray = new Array(8);
+    var codeFactor = new Array(8);
+    var verifyChar;
+
+    for (var i = 0; i < 8; i++) {
+        var tmpChar = code.substring(i, i + 1);
+        if (isNaN(tmpChar)) {
+            codeArray[i] = tmpChar.charCodeAt(0) - 65 + 10;
+        } else {
+            codeArray[i] = parseInt(tmpChar);
+        }
+    }
+    endChar = code.substring(8, 9);
+    codeFactor[0] = 3;
+    codeFactor[1] = 7;
+    codeFactor[2] = 9;
+    codeFactor[3] = 10;
+    codeFactor[4] = 5;
+    codeFactor[5] = 8;
+    codeFactor[6] = 4;
+    codeFactor[7] = 2;
+    var j1 = 0;
+    for (var i = 0; i < 8; i++) {
+        j1 = j1 + codeArray[i] * codeFactor[i];
+    }
+    j1 = j1 % 11;
+    j1 = 11 - j1;
+
+    switch (j1) {
+        case 11:
+            verifyChar = "0";
+            break;
+        case 10:
+            verifyChar = "X";
+            break
+        default:
+            verifyChar = String(j1);
+    }
+
+    if (endChar == verifyChar) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//手机合法验证
+function IsSJ(_val) {
+    if (_val == "" || _val == null) {
+        return false;
+    }
+    if (_val.length < 10) {
+        return false;
+    }
+    if (_val != "" && _val != null) {
+        RegCellPhone = /^(1)([0-9]{10})?$/;
+        falg = _val.search(RegCellPhone);
+        if (falg == -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
+//邮箱合法验证
+function IsEmal(_val) {
+    if (_val == "" || (_val != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(_val))) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+//验证日期
+function valDateByObjLocal(_time) {
+    if (_time == "" || _time == null) {
+        return false;
+    }
+    _time = _time.replace(/\//gm, "-")
+    if (_time.indexOf(':') >= 0) {
+        var reDateTime = /^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-)) (20|21|22|23|[0-1]?\d):[0-5]?\d:[0-5]?\d$/;
+        return reDateTime.test(_time);
+    }
+    else {
+        var matchArray = _time.match(/^((((19|20)(([02468][048])|([13579][26]))-(02|2)-29))|((20[0-9][0-9])|(19[0-9][0-9])|(18[0-9][0-9]))-((((0?[1-9])|(1[0-2]))-((0?[1-9])|(1\d)|(2[0-8])))|((((0?[13578])|(1[02]))-31)|(((0?[1,3-9])|(1[0-2]))-(29|30)))))$/);
+        if (matchArray == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+}
+//护照
+function pdhzCode(number) {
+    var re = new RegExp("(^([PSE]{1}\\d{7}|[GS]{1}\\d{8})$)"); //E字打头的后面不知道要跟几位
+    if (re.test(number.toUpperCase())) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+ //判断字符串是否为数字 //判断正整数 /^[1-9]+[0-9]*]*$/
+function checkRate(val) {
+    var re = /^[0-9]+.?[0-9]*$/; 
+    if (!re.test(val)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+} 
+/**
+* 弹出框方案
+* @param obj 点击对象
+* @param width 弹出框宽度
+* @param hight 弹出框高度
+* @param title 弹出框标题
+* @param html 弹出框内容
+*/
+function showBox(obj, width, hight, title, html) {
+    var wBox = obj.wBox({
+        wBoxURL: "wbox/",
+        title: title,
+        html: "<div id='myMap' style='width:500px;height:100px;overflow-y:auto;color:#cc0000'>" + html + "</div>",
+        callBack: null,
+        noTitle: false,
+        show: true,
+        timeout: 0,
+        target: null,
+        requestType: null, //iframe,ajax,img
+        drag: true
+    });
+    //wBox.showBox();
+}
+function checkHour(obj) {
+    if (!$.isNumeric(obj.value) || parseInt(obj.value, 10) > 23 || parseInt(obj.value, 10) < 0)
+        obj.value = "00";
+    else if (parseInt(obj.value, 10) < 10)
+        obj.value = "0" + parseInt(obj.value, 10);
+}
+function checkMin(obj) {
+    if (!$.isNumeric(obj.value) || parseInt(obj.value, 10) > 59 || parseInt(obj.value, 10) < 0)
+        obj.value = "00";
+    else if (parseInt(obj.value, 10) < 10)
+        obj.value = "0" + parseInt(obj.value, 10);
+}
+
+//多选限止单选
+function dxOne(_name) {
+    $("input[name=" + _name + "]").click(function () {
+        $("input[name=" + _name + "]").attr("checked", false);
+        $(this)[0].checked = true;
+    });
+}
+function AddNuber(_obj, _Id) {
+    var srval = $(_obj).val();
+    var zsval = $("#" + _Id + "").val();
+    var addval = $(_obj).attr("addsl");
+    var addsl = 0;
+    if (checkRate(srval) == true) {
+        if (checkRate(zsval) == false)
+        { zsval = 0; }
+        if (checkRate(addval) == false)
+        { addval = 0; }
+        addsl = parseFloat(srval) - parseFloat(addval);
+        zsval = parseFloat(zsval) + parseFloat(addsl);
+        $(_obj).attr("addsl", srval);
+    }
+    else {
+        if (checkRate(zsval) == false)
+        { zsval = 0; }
+        if (checkRate(addval) == false)
+        { addval = 0; }
+        addsl = parseFloat("0") - parseFloat(addval);
+        zsval = parseFloat(zsval) + parseFloat(addsl);
+        $(_obj).attr("addsl", addsl);
+    }
+    $("#" + _Id + "").val(parseFloat(zsval.toFixed(5)));
+}
+
+function YzNamePy(_val) {
+    var re = /^[A-Z][a-z]* {1}[A-Z][a-z]*$/;
+    if (!re.test(_val)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+ 
+
+function Verification(save, fromId) {
+    $("#" + fromId + "").find("[YzId=YzCont]").each(function () {
+        //0 普通文本-0
+        //YzType==1  普通文本
+        //2 复选框
+        //3 邮箱
+        //4 时间
+        //5 手机
+        //6组织机构代码
+        //7动态添加Table验证
+        //8不能为空，并判断字数
+        //9判断单选框
+        //10普通文件，重写name
+        //11身份证
+        //12验证确认密码
+        //13文本不为空，并判断字符区间
+        //14 时间
+        //15 身份Or护照验证
+        //20 姓名拼音
+        //21 数字区间0-9
+        if ($(this).attr("YzType") == "0") {
+            if ($(this).val() == "" || $(this).val() == "0") {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "1") {
+            if ($(this).val() == "") {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "2") {
+            if ($("input[name=" + $(this).attr("name") + "]:checked").length == 0) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "3") {
+            if (IsEmal($(this).val()) == false) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "4") {
+            var TimeYzStr = $(this).attr("YzRemark");
+            var YzTime = $("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").val();
+            if (valDateByObjLocal(YzTime) == false) {
+                irisValaddMsg(TimeYzStr);
+            }
+        }
+        else if ($(this).attr("YzType") == "5") {
+            if (IsSJ($(this).val()) == false) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "6") {
+            if (isValidOrgXyCode($(this).val()) == false) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "7") {
+            var AddYzStr = $(this).attr("YzRemark");
+            if ($("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").length == "0") {
+                irisValaddMsg(AddYzStr);
+            }
+            else {
+                $("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").each(function () {
+                    if ($(this).val() == "") {
+                        irisValaddMsg(AddYzStr);
+                        return false;
+                    }
+                })
+            }
+        }
+        else if ($(this).attr("YzType") == "8") {
+            if ($(this).val() == "") {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+            else if ($(this).val().length > $(this).attr("YzNuber")) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "9") {
+            var AddYzStr = $(this).attr("YzRemark");
+            if ($("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]:checked").length > 0) { }
+            else { irisValaddMsg(AddYzStr); }
+        }
+        else if ($(this).attr("YzType") == "10") {
+            var AddYzStr = $(this).attr("YzRemark");
+            if ($("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").val() == "") {
+                irisValaddMsg(AddYzStr);
+            }
+        }
+        else if ($(this).attr("YzType") == "11") {
+            if (searchCard($(this).val()) == false) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "12") {
+            var Yzzzz = $("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").val();
+            if ($(this).val() != Yzzzz) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+
+        else if ($(this).attr("YzType") == "13") {
+            if ($(this).val() == "") {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+            else if ($(this).val().length < $(this).attr("YzNuber1") || $(this).val().length > $(this).attr("YzNuber2")) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "14") {
+            var TimeYzStr = $(this).attr("YzRemark");
+            var YzTime = $("#" + fromId + "").find("[name=" + $(this).attr("YzName") + "]").val();
+            if (valDateByObjLocal(YzTime) == false && YzTime != "") {
+                irisValaddMsg(TimeYzStr);
+            }
+        }
+        else if ($(this).attr("YzType") == "15") {
+            if (searchCard($(this).val()) == true || pdhzCode($(this).val()) == true || $(this).val().length < 11) {
+            }
+            else {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "20") {
+            if (YzNamePy($(this).val()) == false) {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+        }
+        else if ($(this).attr("YzType") == "21") {
+            if ($(this).val() == "") {
+                irisValaddMsg($(this).attr("YzRemark"));
+            }
+            else {
+                try {
+                    if (parseFloat($(this).val()) >= parseFloat($(this).attr("YzNuber0")) && parseFloat($(this).val()) <= parseFloat($(this).attr("YzNuber1")))
+                    { }
+                    else {
+                        irisValaddMsg($(this).attr("YzRemark"));
+                    }
+                }
+                catch (e) {
+                    irisValaddMsg($(this).attr("YzRemark"));
+                }
+            }
+        }
+    })
+    if (!valResult()) {
+        irisValShowMsg($("#wbox1"));
+        return false;
+    } else if (save == null || save == '') {
+        showBox($("#wbox1"), "300px", "200px", "检查通过", "所有检查全部合格");
+        return true;
+    } else {
+        return true;
+    }
+}
+function RXDialog(settings) {
+    settings = settings || {};
+    this.selector = settings.selector || "body";
+    this.type = settings.type || "";
+    this.title = settings.title || "";
+    this.content = settings.content || "";
+    this.buttons = settings.buttons || [];
+    this.init();
+}
+RXDialog.prototype.init = function () {
+    var mask = $("<div>", {
+        'class':'RXDialog_mask'
+    });
+    var plate = $("<div>", {
+        'class':'RXDialog_plate'
+    });
+    plate.html("<div class='plate_cell'><div class='plate_panel'><div class='plate_title'>" + this.title + "</div><div class='plate_body'></div></div></div>");
+    this.plate = plate;
+    this.mask = mask;
+    $(this.selector).append(mask);
+    $(this.selector).append(plate);
+    if (this.buttons.length > 0) {
+        var $action = $("<div>", {
+            'class':'plate_action'
+        });
+        for (var i = 0; i < this.buttons.length; i++) {
+            var ibutton = $("<a>", {
+                href: "javascript:void(0);",
+                'class': "plate_btn " + this.buttons[i].cls
+            });
+            ibutton.html(this.buttons[i].text);
+            ibutton.bind("click", this.buttons[i].callBack || function () { });
+            $action.append(ibutton);
+        }
+        plate.find(".plate_panel").append($action);
+    }
+    this.update(this.content);
+};
+RXDialog.prototype.update = function (text) {
+    this.plate.find(".plate_body").html(text);
+};
+RXDialog.prototype.close = function () {
+    this.mask.remove();
+    this.plate.remove();
+};
+function isPhone() {
+    //return true;
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+        return true;
+    } else {
+        return false;
+    }
+}

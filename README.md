@@ -28,7 +28,14 @@ sklearn
   - **_predict.py: 预测文件
   - **_train.py:训练文件
 - Server
+  - data: 数据模型
+  - maker：请求处理模块
+  - scumaker：后端总体配置
+  - util：工具模块
+  - venv：运行环境
 - FrontPage
+  - admin：系统运行后台界面
+  - qianxin：网页前端界面
 
 # 详细文件介绍
 
@@ -69,6 +76,8 @@ sklearn
 - 千信智服-团队分析：<https://aistudio.baidu.com/aistudio/projectdetail/180911>
 
 ## 产品网页地址
+
+http://qianxin.xixfeng.cn/
 
 ## 模型地址
 

@@ -1,0 +1,346 @@
+﻿
+$(document).ready(function () {
+//    if (getCookie('userid') == "") {
+//        if (getCookie('tokenId') != null && getCookie('tokenId') != "") {
+//            getToken();
+//        }
+//    }
+});
+
+
+function getToken4(_tokenId) {
+        $.get("/Web/NewAajx.ashx?" + Math.random(), { Action: 'getIDPUser',tokenId: _tokenId }, function (data) {
+            if (data == "1") {
+                location.href = "/index.html";
+            }
+        });
+//    var _url = 'http://110.188.70.244:8090/idp/restful/getIDPUserAttributes?appId=cxcyfw&tokenId=' + _tokenId + '&remoteIp=127.0.0.1&attributeName=uid';
+//    $.ajax({
+//        url: _url,
+//        type: 'GET',
+//        dataType: 'jsonp',
+//        jsonp: 'jsonpCallback',
+//        jsonpCallback: 'successCallback',
+//        success: function (data) {
+//            var _us = data.data.attributes.spRoleList;
+//            $.get("/Web/NewAajx.ashx?" + Math.random(), { Action: 'getIDPUser', us: _us }, function (data) {
+//                if (data == "1") {
+//                    location.href = "/index.html";
+//                }
+//            });
+//        }
+//    });
+}
+
+
+
+$(function () {
+    document.onkeydown = function (e) {
+        var ev = document.all ? window.event : e;
+        if (ev.keyCode == 13) {// 如（ev.ctrlKey && ev.keyCode==13）为ctrl+Center 触发  
+            //要处理的事件  
+            try {
+                $("#btn_login_ok").click();
+            }
+            catch (e)
+                { }
+        }
+    }
+
+});
+
+
+function loginBtn() {
+    loginBox.show("");
+}
+function syss(_MyUrl) {
+    var _id = getCookie('userid');
+    if (_id == ""||_id == "0") {
+        loginBox.show(_MyUrl);
+    }
+    else {
+        if (_MyUrl != "") {
+
+            if (getCookie('newusertype') != "2" && _MyUrl == "/master/product/kcdap.html") {
+                alert("科创贷产品只提供给企业申请");
+            }
+            else {
+                window.location = _MyUrl;
+            }
+        }
+        else {
+            window.location = '/master/index.html';
+        }
+    }
+}
+
+function buttonSearCh() { 
+
+
+}
+function buttonSearCh(aa) {
+    var _val = $("#KeyText").val();
+    if (_val != "") {
+        $.get("/Web/Aajx.ashx?" + Math.random(), { Action: 'SetCook', Name: 'xText', Value: _val }, function (aa) {
+            if (aa == 1) {
+                window.location.href = "/list/second.html";
+            }
+        });
+    }
+}
+function loginDel(_url) {
+    if (confirm('你确定要退出吗？')) {
+        $.get("/Web/Aajx.ashx?" + Math.random(), { Action: 'M_OutLogin' }, function (aa) {
+            if (aa == 0) {
+                if (_url == "" || _url == null || _url == 'undefined') {
+                    window.location.href = "/index.html";
+                }
+                else {
+                    window.location.href = _url;
+                }
+            }
+        });
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function btnapply(_PutID) {
+    $.get("/Web/NewAajx.ashx?" + Math.random(), { Action: 'AddApplyPD', PutID: _PutID}, function (fhz) {
+        if (fhz == "CXJNO") {
+            if (confirm("暂未申请科创券,需要申请科创券吗？")) {
+                window.location.href = "/master/product/kcbuser.html";
+            }
+        }
+        else if (fhz == "CXJNOs") {
+            if (confirm("暂未申请该服务类型的科创券,需要申请科创券吗？")) {
+                window.location.href = "/master/product/kcbuser.html";
+            }
+        }
+        else if (fhz == "CXJNOMoney") {
+            if (confirm("您的科创券已无余额，继续购买将不能享受到补贴。"))
+            { qyAddapply(_PutID); }
+        }
+        else {
+            qyAddapply(_PutID);
+        }
+    });
+}
+function qyAddapply(_PutID) {
+    $.get("/Web/NewAajx.ashx?" + Math.random(), { Action: 'AddApply', PutID: _PutID }, function (pd) {
+        if (pd > 0) {
+            posturl('/master/product/kcbfw.html', '1');
+        }
+        else {
+            alert("申请失败！");
+        }
+    });
+}
+//验证邮箱
+function IsEmal(_val) {
+    if (_val == "" || (_val != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(_val))) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    var val = "";
+    if (arr = document.cookie.match(reg)) {
+        val = decodeURI(arr[2]);
+        if (val == "0" || val==null) {
+            val = "";
+        }
+    }
+    return val;
+}
+function delCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = encodeURI(getCookie(name));
+    if (cval != null)
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+}
+
+
+function isValidOrgCode(orgCode) {
+    if (orgCode == null) return false;
+    orgCode = orgCode.toUpperCase();
+    var Special_chars = "~!@#$%^&()_+`-={}|\":>?<,./;'[]\\";
+    var mcSpecial_chars = "~!@#$%^&_`={}|\":?/;'[]\\";
+    var mySpecial_chars = "~!@#$%^&_`={}|\":?/;'\\";
+    var strtit0 = "", strtit1 = "";
+    var strtit2 = "", strtit3 = "";
+    var lastxzqh = "";
+    //alert("xzqhName2 " + xzqh_name2);
+    //===校验按机构代码查询＝＝＝＝＝
+    var strtitX = toDBC(orgCode);
+    if ((strtitX.length > 0 && strtitX.length < 9)) {
+        return false;
+    }
+    var invalidChars = "";
+    for (i = 0; i < strtitX.length; i++) {
+        var aChar = strtitX.substring(i, i + 1);
+        if (aChar != "-") {
+            if (isNaN(aChar)) {
+                if ((aChar.charCodeAt(0) < 65 || (aChar.charCodeAt(0) > 90 && aChar.charCodeAt(0) < 97) || aChar.charCodeAt(0) > 122)) {
+                    invalidChars = invalidChars + aChar;
+                }
+            } else {
+                if (aChar == " " || aChar == "　") {
+                    invalidChars = invalidChars + aChar;
+                }
+            }
+        }
+    }
+    if (invalidChars.length > 0) {
+        return false;
+    }
+    var strtit0 = strtitX;
+    //    var ss = strtitX.split("-"); //过滤"-"
+    //    for (i = 0; i < ss.length; i++) {
+    //        strtit0 += ss[i];
+    //    }
+    if (strtit0.length != 9) {
+        return false;
+    }
+    if ((strtit0.length > 0) && (!codeCheck(strtit0))) {
+        return false;
+    }
+    return true;
+}
+function toDBC(Str) {
+    var DBCStr = "";
+    for (var i = 0; i < Str.length; i++) {
+        var c = Str.charCodeAt(i);
+        if (c == 12288) {
+            DBCStr += String.fromCharCode(32);
+            continue;
+        }
+        if (c > 65280 && c < 65375) {
+            DBCStr += String.fromCharCode(c - 65248);
+            continue;
+        }
+        DBCStr += String.fromCharCode(c);
+    }
+    return DBCStr;
+}
+
+function codeCheck(code) {
+    var codeArray = new Array(8);
+    var codeFactor = new Array(8);
+    var verifyChar;
+
+    for (var i = 0; i < 8; i++) {
+        var tmpChar = code.substring(i, i + 1);
+        if (isNaN(tmpChar)) {
+            codeArray[i] = tmpChar.charCodeAt(0) - 65 + 10;
+        } else {
+            codeArray[i] = parseInt(tmpChar);
+        }
+    }
+    endChar = code.substring(8, 9);
+
+    codeFactor[0] = 3;
+    codeFactor[1] = 7;
+    codeFactor[2] = 9;
+    codeFactor[3] = 10;
+    codeFactor[4] = 5;
+    codeFactor[5] = 8;
+    codeFactor[6] = 4;
+    codeFactor[7] = 2;
+    var j1 = 0;
+
+    for (var i = 0; i < 8; i++) {
+        j1 = j1 + codeArray[i] * codeFactor[i];
+    }
+
+    j1 = j1 % 11;
+    j1 = 11 - j1;
+
+    switch (j1) {
+        case 11:
+            verifyChar = "0";
+            break;
+        case 10:
+            verifyChar = "X";
+            break
+        default:
+            verifyChar = String(j1);
+    }
+
+    if (endChar == verifyChar) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//转
+function SerializData(Data) {
+    var returnStr = "";
+    function JSONStr(data) {
+        var type = $.type(data);
+        var str = "";
+        switch (type) {
+            case "number":
+                if (!data) data = 0;
+                str = data;
+                break;
+            case "string":
+                if (data) {
+                    str = "\"" + data + "\"";
+                }
+                else {
+                    str = "null";
+                }
+                break;
+            case "array":
+                str += "[";
+                for (var i = 0, n = data.length; i < n; i++) {
+                    if (i != 0) str += ",";
+                    str += JSONStr(data[i]);
+                }
+                str += "]";
+                break;
+            case "object":
+                var i = 0;
+                str += "{";
+                for (var item in data) {
+                    if (i != 0) str += ",";
+                    i++;
+                    str += "\"" + item + "\"" + ":";
+                    str += JSONStr(data[item]);
+                }
+                str += "}";
+                break;
+            case "boolean":
+                str = data;
+                break;
+            default:
+                str = "null";
+                break;
+        }
+        return str;
+    }
+    returnStr = JSONStr(Data);
+    return returnStr;
+}
+
+
+
+
+
+function posturl(_url, _postId, _postZd1, _postZd2, _postZd3) {
+    $("#postId").val(_postId);
+    $("#postZd1").val(_postZd1);
+    $("#postZd2").val(_postZd2);
+    $("#postZd3").val(_postZd3);
+    $("#header").attr("action", _url);
+    $("#header").submit();
+}

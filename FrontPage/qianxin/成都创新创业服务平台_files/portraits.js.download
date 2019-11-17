@@ -1,0 +1,810 @@
+
+var DataArr = [
+    {
+        list0: ["高新技术企业", "科技型中小企业"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["0", "0", "10", "10"],
+        list3: ["0", "0", "0", "0"],
+        list5: [[1.4, 0], [3.9, 0], [6.4, 0], [8.9, 0]],
+        list4: [[1.1, 0], [3.6, 0], [6.1, 10], [8.6, 10]]
+    },
+    {
+        list0: ["法律诉讼", "是否上市"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["6", "3", "5", "10"],
+        list3: ["0", "0", "1", "1"],
+        list5: [[1.4, 0], [3.9, 0], [6.4, 1], [8.9, 0]],
+        list4: [[1.1, 6], [3.6, 3], [6.1, 5], [8.6, 10]]
+    },
+    {
+        list0: ["主营业务收入", "研发费用"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["6", "3", "9", "11"],
+        list3: ["5", "5", "11", "14"],
+        list5: [[1.4, 5], [3.9, 5], [6.4, 11], [8.9, 14]],
+        list4: [[1.1, 6], [3.6, 3], [6.1, 9], [8.6, 11]]
+    },
+    {
+        list0: ["员工总数", "大专以上学历", "研究人员占员工总人数比例"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["45", '55', "55", "61"],
+        list3: ["35", "46", "51", "41"],
+        list4: ["10", "9", "4", "20"],
+        list5: [[1, 45], [3.5, 55], [6, 55], [8.5, 61]],
+        list6: [[1.25, 35], [3.75, 46], [6.25, 51], [8.75, 41]],
+        list7: [[1.5, 10], [4.0, 9], [6.5, 4], [9.0, 20]]
+    },
+    {
+        list0: ["总资产", "净资产", "主营业务收入", "研发费用", "总成本费用", "净利润", "上交利税"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["4525", "4125", "4125", "2000"],
+        list3: ["4525", "4125", "4125", "2000"],
+        list4: ["2563", "2063", "2063", "1060"],
+        list5: ["4520", "3520", "2529", "1520"],
+        list6: ["280", "280", "280", "170"],
+        list7: ["2202", "2202", "2202", "1212"],
+        list8: ["324", "324", "324", "214"],
+        list9: ["128", "128", "128", "108"]
+
+
+    },
+// {
+//     list0: ["2017", "2018"],
+//     list1: ["总资产", "净资产", "主营业务收入", "研发费用", "总成本费用", "净利润", "净利润", "上交利税"],
+//     list2: ["4125", "2063", "3520", "280", "2202", "324", "128", "128"],
+//     list3: ["4125", "2063", "2529", "280", "2202", "324", "128", "128"],
+//     list4: ["2000", "1060", "3520", "170", "1212", "214", "108", "128"]
+// },
+    {
+    list0: ["债权融资", "股权融资"],
+    list1: ["2015", "2016", "2017", "2018"],
+    list2: ["2", "9", "9", "17"],
+    list3: ["3", "5", "11", "12"],
+    list5: [[1.4, 3], [3.9, 5], [6.4, 11], [8.9, 12]],
+    list4: [[1.1, 2], [3.6, 9], [6.1, 9], [8.6, 17]]
+},
+    {
+        list0: ["I类知识产权", "II类知识产权"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["7", "5", "11", "17"],
+        list3: ["2", "3", "9", "12"],
+        list5: [[1.4, 2], [3.9, 3], [6.4, 9], [8.9, 12]],
+        list4: [[1.1, 7], [3.6, 5], [6.1, 11], [8.6, 17]]
+    },
+    {
+        list0: ["申报项目数", "立项项目数"],
+        list1: ["2015", "2016", "2017", "2018"],
+        list2: ["0", "1", "0", "0"],
+        list3: ["0", "0", "0", "0"],
+        list5: [[1.4, 0], [3.9, 0], [6.4, 0], [8.9, 0]],
+        list4: [[1.1, 0], [3.6, 1], [6.1, 0], [8.6, 0]]
+    }
+]
+$(document).ready(function () {
+    Chart1();
+    //ZouShiCharts(7);
+    
+});
+function LoadData(type, _Obj) {
+    $(".MenuCon").find("a").removeClass("check");
+    $(_Obj).addClass("check");
+    ZouShiCharts(type-1);
+}
+function Chart1() {
+    var Chart = document.getElementById("Chart1");
+    var myChart = echarts.init(Chart);
+    var app = {};
+    option = null;
+    app.title = "企业情况";
+    option = {
+        title: {
+            show: false,
+            text: "公司情况",
+            subtext: "",
+            x: "center",
+            top: "4%",
+            textStyle: {
+                fontWeight: "400"
+            }
+        },
+        tooltip: {
+            show: false,
+            trigger: "item",
+            formatter: "{a} <br/>{b} : {c} （{d}%）"
+        },
+        legend: {
+            show: false,
+            type: "scroll",
+            orient: "vertical",
+            right: 10,
+            top: 20,
+            bottom: 20,
+            data: [
+                "行业领域",
+                "财务数据",
+                "资质状况",
+                "风险预警",
+                "股东信息",
+                "主要人员",
+                "科技人员",
+                "研发投入",
+                "创新产出",
+                "融资情况",
+                "科技项目",
+                "技术交易"
+            ]
+        },
+        color: [
+            "#5bbaea",
+            "#5bbaea",
+            "#5bbaea",
+            "#5bbaea",
+            "#268fcf",
+            "#268fcf",
+            "#fac41d",
+            "#fac41d",
+            "#fac41d",
+            "#c6000b",
+            "#c6000b",
+            "#c6000b"
+        ],
+        // graphic:{
+        //     show:false,
+        //     type:'text',
+        //     left:'center',
+        //     top:'52%',
+        //     z:2,
+        //     zlevel:100,
+        //     style:{
+        //         text:'116971家',
+        //         x:100,
+        //         y:100,
+        //         font: '2.5em "STHeiti", sans-serif',
+        //         textAlign:'center',
+        //         fill:'#666666',
+        //         width:'100',
+        //         height:'100'
+        //     }
+        // },
+        series: [
+            {
+                name: "落户人才毕业院校类别",
+                type: "pie",
+                label: {
+                    normal: {
+                        show: true,
+                        position: "inner",
+                        formatter: "{b}" //多值的嵌套,({d}%):\n{c} 人 （{d}%）
+                    },
+                    align: "center"
+                },
+
+                radius: ["35%", "50%"],
+                center: ["50%", "49.8%"],
+                data: [
+                    {
+                        value: "6.25",
+                        name: "行业领域"
+                    },
+                    {
+                        value: "6.25",
+                        name: "财务数据"
+                    },
+                    {
+                        value: "6.25",
+                        name: "资质状况"
+                    },
+                    {
+                        value: "6.25",
+                        name: "风险预警"
+                    },
+                    {
+                        value: "12.5",
+                        name: "股东信息"
+                    },
+                    {
+                        value: "12.5",
+                        name: "主要人员"
+                    },
+                    {
+                        value: "8.3",
+                        name: "科技人员"
+                    },
+                    {
+                        value: "8.3",
+                        name: "研发投入"
+                    },
+                    {
+                        value: "8.3",
+                        name: "创新产出"
+                    },
+                    {
+                        value: "8.3",
+                        name: "融资情况"
+                    },
+                    {
+                        value: "8.3",
+                        name: "科技项目"
+                    },
+                    {
+                        value: "8.3",
+                        name: "技术交易"
+                    }
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+}
+
+function eConsole(param){
+    console.log(param);
+}
+function ZouShiCharts(_type) {
+    var _series = "";
+    var _formatter = "";
+    switch (_type) {
+            case 0:
+                 _series=[
+                            { name: "高新技术企业", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "科技型中小企业", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "高新技术企业", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list4 },
+                            { name: "科技型中小企业", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list5 }
+
+                        ];
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'bar') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>'; //value
+                             }
+                             if (parm[i].seriesName == '高新技术企业') {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '是' : '否') + '<br>';
+                             }
+                             else {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '是' : '否') + '<br>';
+                             }
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+            case 1:
+                 _series=[
+                            { name: "法律诉讼", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "是否上市", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "法律诉讼", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list4 },
+                            { name: "是否上市", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list5 }
+                        ]
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'bar') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>';
+                             }
+                             if (parm[i].seriesName == '法律诉讼') {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                             }
+                             else {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value >0 ? '是' : '否') + '<br>';
+                             }
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+            case 2:
+                 _series=[
+                           { name: "主营业务收入", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "研发费用", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "主营业务收入", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list4 },
+                            { name: "研发费用", smooth: "true", type: "line", xAxisIndex: 1, data: DataArr[_type].list5 }
+                        ]
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'bar') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>';
+                             }
+                             if (parm[i].seriesName == '主营业务收入') {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 1000 ? '1000万元以上' : (parm[i].value > 50 ? '50万元到1000万元' : '50万元以下')) + '<br>';
+                             }
+                             else {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 1000 ? '1000万元以上' : (parm[i].value > 50 ? '50万元—1000万元' : '50万元以下')) + '<br>';
+                             }
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+            case 3:
+                _series = [
+                            { name: "员工总数", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "大专以上学历", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "研究人员占员工总人数比例", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list4 },
+                            { name: "员工总数", type: "line", smooth: "true",xAxisIndex: 1,  barWidth: 15, data: DataArr[_type].list5 },
+                            { name: "大专以上学历", smooth: "true", type: "line",xAxisIndex: 1,  data: DataArr[_type].list6 },
+                            { name: "研究人员占员工总人数比例", type: "line",xAxisIndex: 1,  smooth: "true", data: DataArr[_type].list7 }
+                        ];
+                _formatter = function (parm) {
+                    var _str = '';
+                    for (var i = 0; i < parm.length; i++) {
+                        if (parm[i].seriesType == 'bar') {
+                            if (_str == '') {
+                                _str += parm[i].name + '<br>';
+                            }
+                            if (parm[i].seriesName == '员工总数') {
+                                _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 100 ? '100人以上' : (parm[i].value > 10 ? '10人以上—100人以下' : '10人以下')) + '<br>';
+                            } else if (parm[i].seriesName == '大专以上学历') {
+                                _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 100 ? '100人以上' : (parm[i].value > 10 ? '10人以上—100人以下' : '10人以下')) + '<br>';
+                            }
+                            else {
+                                _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 100 ? '100人以上' : (parm[i].value > 10 ? '10人以上—100人以下' : '10人以下')) + '<br>';
+                            }
+                        }
+                    }
+                    return _str;
+                }
+                break;
+            case 4:
+                _series = [
+                            { name: "", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "总资产", type: "line", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "净资产", smooth: "true", type: "line", data: DataArr[_type].list3 },
+                            { name: "主营业务收入", type: "line", smooth: "true", data: DataArr[_type].list4 },
+                            { name: "研发费用", type: "line", smooth: "true", data: DataArr[_type].list5 },
+                            { name: "总成本费用", type: "line", smooth: "true", data: DataArr[_type].list6 },
+                            { name: "净利润", type: "line", smooth: "true", data: DataArr[_type].list7 },
+                            { name: "上交利税", type: "line", smooth: "true", data: DataArr[_type].list8 }
+                        ]
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'line') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>';
+                             }
+                             if (parm[i].seriesName == '主营业务收入') {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 1000 ? '1000万元以上' : (parm[i].value > 50 ? '50万元—1000万元' : '50万元以下')) + '<br>';
+                             }
+                             else {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 1000 ? '1000万元以上' : (parm[i].value > 50 ? '50万元—1000万元' : '50万元以下')) + '<br>';
+                             }
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+                case 5:
+                 _series=[
+                            { name: "债权融资", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "股权融资", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "债权融资", smooth: "true", type: "line", xAxisIndex: 1, data: DataArr[_type].list4 },
+                            { name: "股权融资", type: "line", smooth: "true", xAxisIndex: 1, data: DataArr[_type].list5 }
+                        ];
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'bar') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>';
+                             }
+                             if (parm[i].seriesName == '债权融资') {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                             }
+                             else {
+                                 _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                             }
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+                 case 6:
+                 _series=[
+                            { name: "I类知识产权", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "II类知识产权", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            {name: "I类知识产权",type: "line",smooth: "true", xAxisIndex: 1,barWidth: 15,data: DataArr[_type].list4},
+                            {name: "II类知识产权",smooth: "true",type: "line", xAxisIndex: 1,data: DataArr[_type].list5}
+                        ]
+                 _formatter = function (parm) {
+                     var _str = '';
+                     for (var i = 0; i < parm.length; i++) {
+                         if (parm[i].seriesType == 'bar') {
+                             if (_str == '') {
+                                 _str += parm[i].name + '<br>';
+                             }
+                             _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                         }
+                     }
+                     return _str;
+                 }
+                break;
+            case 7:
+                _series = [
+                            { name: "申报项目数", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list2 },
+                            { name: "立项项目数", type: "bar", smooth: "true", barWidth: 15, data: DataArr[_type].list3 },
+                            { name: "申报项目数", type: "line", smooth: "true", xAxisIndex: 1, barWidth: 15, data: DataArr[_type].list4 },
+                            { name: "立项项目数", smooth: "true", type: "line", xAxisIndex: 1, data: DataArr[_type].list5 }
+                        ]
+
+                _formatter = function (parm) {
+                    var _str = '';
+                    for (var i = 0; i < parm.length; i++) {
+                        if (parm[i].seriesType == 'bar') {
+                            if (_str == '') {
+                                _str += parm[i].name + '<br>';
+                            }
+                            if (parm[i].seriesName == '申报项目数') {
+                                _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                            }
+                            else {
+                                _str += parm[i].marker + ' ' + parm[i].seriesName + '：' + (parm[i].value > 0 ? '有' : '无') + '<br>';
+                            }
+                        }
+                    }
+                    return _str;
+                }
+                break;
+        }
+    var Chart = document.getElementById("ZouShiCharts");
+    var myChart = echarts.init(Chart);
+    myChart.clear();
+    var app = {};
+    option = null;
+    app.title = "区域";
+    option = {
+        tooltip: {
+            trigger: "axis",
+            // trigger: "item",
+            formatter: _formatter
+        },
+        grid: {
+            top: "75",
+            x: "80",
+            width: "auto"
+        },
+        calculable: true,
+        legend: {
+            y: "20",
+            title: "aaaa",
+            data: DataArr[_type].list0
+        },
+        xAxis: [{
+                type: "category",
+                data: DataArr[_type].list1,
+                axisLabel: {
+                    interval: 0
+                }
+            }, {
+                show: false,
+                min: 0,
+                max: 10,
+                type: 'value',
+                axisLine: { onZero: false },
+                axisLabel: {
+                    interval: 0
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: "value",
+                name: "",
+                axisLabel: {
+                    formatter: " "
+                }
+            }
+        ],
+        series: _series
+//            [
+//                {name: "",type: "bar",smooth: "true",barWidth: 15,data: DataArr[_type].list2},
+//                {name: "总资产",type: "line",smooth: "true",barWidth: 15,data: DataArr[_type].list3},
+//                {name: "净资产",smooth: "true",type: "line",data: DataArr[_type].list4},
+//                {name: "主营业务收入",type: "line",smooth: "true",data: DataArr[_type].list5},
+//                {name: "研发费用",type: "line",smooth: "true",data: DataArr[_type].list6},
+//                {name: "总成本费用",type: "line",smooth: "true",data: DataArr[_type].list7},
+//                {name: "净利润",type: "line",smooth: "true",data: DataArr[_type].list8},
+//                {name: "上交利税",type: "line",smooth: "true",data: DataArr[_type].list9}
+//            ]
+    };
+    myChart.setOption(option);
+}
+
+
+
+function YoushiCharts(_rs) {
+    var Chart = document.getElementById("YoushiCharts1");
+    var myChart = echarts.init(Chart);
+    var app = {};
+    option = null;
+    app.title = "核心优势";
+    option = {
+        tooltip: {
+            trigger: 'item',
+
+//            formatter: function (params) { 
+//                const item = params;
+                // console.log(item);
+//                if(item.name=="研发投入"&&item.seriesName=="企业实际情况"){
+//                    return '${item.seriesName} <br/>${item.marker} ${item.name}:<br />主营业务收入2529万元，超过平均数：38.27%<br />研发费用280万，超过平均数：75%`
+//                }else if(item.name=="研发投入"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />主营业务收入：1829万元<br />研发费用：160万元`
+//                }else if(item.name=="科研人员"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />主营业务收入：1229万元<br />研发费用：120万元`
+//                }else if(item.name=="科研人员"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />主营业务收入：1229万元<br />研发费用：120万元`
+//                }else if(item.name=="财务数据"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />
+//                    总资产：982万元 超过平均数：320.06% <br />
+//                    净资产：673万元 超过平均数：206.54%<br />
+//                    主营业务收入：502万元 超过平均数：403.78%<br />
+//                    研发费用：80万元 超过平均数：250%<br />
+//                    总成本费用：602万元 超过平均数：265.78%<br />
+//                    净利润：78万元 超过平均数：315.38%<br />
+//                    上交利税：68万元 超过平均数：88.23%`
+//                }else if(item.name=="财务数据"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />总资产：982万元<br />净资产：673万元<br />主营业务收入：502万元<br />研发费用：80万元<br />总成本费用：602万元<br />净利润：78万元<br />上交利税：68万元`
+//                }else if(item.name=="融资情况"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />申请科创贷：6次，超过平均数：50%<br />成功放款：3次，超过平均数：50%<br />累计放款金额：1040万元，超过平均数：73.33%`
+//                }else if(item.name=="融资情况"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />申请科创贷：4次<br />成功放款：2次<br />累计放款金额：600万元`
+//                }else if(item.name=="科技成果"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />I类知识产权：7项，超过平均数：250%<br />II类知识产权：20项，超过平均数：200%`
+//                }else if(item.name=="科技成果"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />I类知识产权：2项<br />II类知识产权：6项`
+//                }else if(item.name=="资质状况"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />高新技术企业：是<br />科技型中小企业：是`
+//                }else if(item.name=="资质状况"&&item.seriesName=="行业平均水平"){
+//                    // return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />I类知识产权：2项<br />II类知识产权：6项`
+//                }else if(item.name=="经营状况"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />法律诉讼1起，低于平均数：100%`
+//                }else if(item.name=="经营状况"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />法律诉讼0起<br />是否上市：否`
+//                }else if(item.name=="科技项目"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />申报项目数：3，低于平均数：50%<br />立项项目数：2，低于平均数：33.3%`
+//                }else if(item.name=="科技项目"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />申报项目数：6个<br />立项项目数：3个`
+//                }else if(item.name=="科研人员"&&item.seriesName=="企业实际情况"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />员工总数：95人，超过平均数：90%<br />大专以上学历：45人，超过平均数：80%<br>研究人员占员工总人数比例：51%，超过平均数：41.67%`
+//                }else if(item.name=="科研人员"&&item.seriesName=="行业平均水平"){
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:<br />员工总数：50人<br />大专以上学历：25人<br>研究人员占员工总人数比例：36%`
+//                }else{
+//                    return `${item.seriesName} <br/>${item.marker} ${item.name}:${item.value}`
+//                }
+                
+//            }
+            formatter: "{a} <br/>{b} "//{c} ({d}%)点击查看详情
+        },
+        legend: {
+            show:false,
+            orient: 'vertical',
+            x: 'left',
+            data:[ "资质状况","研发投入", "经营状况","研发投入","科研人员","财务数据","融资情况","科技项目","科技成果"]
+        },
+        color: [
+            // "#867234",
+            "#5bbaea",
+            "#c6000b",
+            "#5bbaea",
+            "#c6000b",
+            "#c6000b",
+            "#c6000b",
+            "#5bbaea",
+            "#c6000b"
+        ],
+        graphic: {
+            show: false,
+            type: "text",
+            left: "center",
+            top: "47.5%",
+            z: 2,
+            zlevel: 100,
+            style: {
+                text: "核心优势",
+                x: 100,
+                y: 100,
+                font: '1.8em "STHeiti", sans-serif',
+                textAlign: "center",
+                fill: "#666666",
+                width: "100",
+                height: "100"
+            }
+        },
+        series: [
+//            {
+//                name:'行业平均水平',
+//                type:'pie',
+//                radius: ['25%', '55%'],
+
+//                label: {
+//                    normal: {
+//                        position: 'inner'
+//                    }
+//                },
+//                data:[
+//                    { value: 12.5, name: '资质状况', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '研发投入', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '经营状况', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '科研人员', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '财务数据', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '融资情况', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '科技项目', itemStyle: { color: '#cccccc'} },
+//                    { value: 12.5, name: '科技成果', itemStyle: { color: '#cccccc'} }
+//                ]
+//            },
+            {
+                name:'企业实际情况',
+                type:'pie',
+                radius: ['45%', '95%'],
+                label: {
+                    normal: {
+                        position: 'inner'
+                    }
+                },
+                data:[
+                    {value:12.5, name:'资质状况'},
+                    {value:12.5, name:'研发投入'},
+                    {value:12.5, name:'经营状况'},
+                    {value:12.5, name:'科研人员'},
+                    {value:12.5, name:'财务数据'},
+                    {value:12.5, name:'融资情况'},
+                    {value:12.5, name:'科技项目'},
+                    {value:12.5, name:'科技成果'}
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    myChart.on("click", function (params) {
+        // console.log(params);
+        var res = '';
+        if (params.name == "研发投入") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">研发投入</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">主营业务收入：1829万元&nbsp;&nbsp;&nbsp;&nbsp;研发费用：160万</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">主营业务收入2529万元，超过平均数：38.27%&nbsp;&nbsp;&nbsp;&nbsp;研发费用280万元，超过平均数：75%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "财务数据") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">财务数据</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">总资产：982万元&nbsp;&nbsp;&nbsp;&nbsp;净资产：673万元&nbsp;&nbsp;&nbsp;&nbsp;主营业务收入：502万元&nbsp;&nbsp;&nbsp;&nbsp;研发费用：80万元&nbsp;&nbsp;&nbsp;&nbsp;总成本费用：602万元&nbsp;&nbsp;&nbsp;&nbsp;净利润：78万元&nbsp;&nbsp;&nbsp;&nbsp;上交利税：68万元</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">总资产：982万元，超过平均数：320.06%&nbsp;&nbsp;净资产：673万元，超过平均数：206.54%&nbsp;&nbsp;主营业务收入：502万元，超过平均数：403.78%&nbsp;&nbsp;研发费用：80万元，超过平均数：250%&nbsp;&nbsp;总成本费用：602万元，超过平均数：265.78%&nbsp;&nbsp;净利润：78万元，超过平均数：315.38%&nbsp;&nbsp;上交利税：68万元，超过平均数：88.23%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "融资情况") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">融资情况</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">申请科创贷：4次&nbsp;&nbsp;&nbsp;&nbsp;成功放款：2次&nbsp;&nbsp;&nbsp;&nbsp;累计放款金额：600万元</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">申请科创贷：6次，超过平均数：50%&nbsp;&nbsp;成功放款：3次，超过平均数：50%&nbsp;&nbsp;累计放款金额：1040万元，超过平均数：73.33%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "科技成果") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">科技成果</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">I类知识产权：2项&nbsp;&nbsp;&nbsp;&nbsp;II类知识产权：6项</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">I类知识产权：7项，超过平均数：250%&nbsp;&nbsp;II类知识产权：20项，超过平均数：200%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "资质状况") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">资质状况</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p2">高新技术企业：是&nbsp;&nbsp;科技型中小企业：是</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "经营状况") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">经营状况</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">法律诉讼1起，低于平均数：100%</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">法律诉讼0起&nbsp;&nbsp;是否上市：否</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "科技项目") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">科技项目</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">申报项目数：6个&nbsp;&nbsp;立项项目数：3个</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">申报项目数：3，低于平均数：50%&nbsp;&nbsp;立项项目数：2，低于平均数：33.3%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        } else if (params.name == "科研人员") {
+            res = '';
+            res += '<div class="ppwe clear_float" style="padding-bottom:10px;border-bottom: 1px dashed #ddd;">';
+            res += '<div class="p1" style="font-size:22px;">科研人员</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1" style="float:none;">行业平均水平</div>';
+            res += '<div class="p2">员工总数：50人&nbsp;&nbsp;大专以上学历：25人&nbsp;&nbsp;研究人员占员工总人数比例：36%</div>';
+            res += '</div>';
+            res += '<div class="ppwe clear_float">';
+            res += '<div class="p1"  style="float:none;">企业实际情况</div>';
+            res += '<div class="p2">员工总数：95人，超过平均数：90%&nbsp;&nbsp;大专以上学历：45人，超过平均数：80%&nbsp;&nbsp;研究人员占员工总人数比例：51%，超过平均数：41.67%</div>';
+            res += '</div>';
+            $('#youshiWord').html(res);
+        }
+        else {
+            res = '';
+            res += '<div class="ppwe clear_float">';
+            res += '        <div class="p1">研发投入</div>';
+            res += '        <div class="p2">主营业务收入2529万  研发费用280万</div>';
+            res += '    </div>';
+            res += '    <div class="ppwe clear_float">';
+            res += '       <div class="p1">科研人员</div>';
+            res += '       <div class="p2">员工总数95人，大专以上学历45人，研究人员占员工总人数比例51.00%</div>';
+            res += '   </div>';
+            res += '   <div class="ppwe clear_float">';
+            res += '       <div class="p1">财务数据</div>';
+            res += '       <div class="p2">总资产4125万，净资产2063万，主营业务收入2529万，研发费用：280万，总成本费用2202万，净利润324万，上交利税128万</div>';
+            res += '   </div>';
+            res += '   <div class="ppwe clear_float">';
+            res += '      <div class="p1">融资情况</div>';
+            res += '      <div class="p2">申请科创贷6次，成功放款5次，累计放款金额1040万</div>';
+            res += '  </div>';
+            res += '  <div class="ppwe clear_float">';
+            res += '      <div class="p1">科技成果</div>';
+            res += '      <div class="p2">I类知识产权7项，II类知识产权20项</div>';
+            res += '  </div>';
+            $('#youshiWord').html(res);
+        }
+//        $('#youshiWord .p2').each(function () {
+//            $(this).html($(this).html().replace(/([\d]+)/g, "<em style='color:red;;font-size:16px;vertical-align: middle;'>*</em>"));
+//        });
+    });
+}
+//$('#youshiWord .p2').each(function () {
+//    $(this).html($(this).html().replace(/([\d]+)/g, "<em style='color:red;;font-size:16px;vertical-align: middle;'>*</em>"));
+//});
+//$('.timeline-content p').each(function () {
+//    $(this).html($(this).html().replace(/([\d]+)/g, "<em style='color:red;font-size:14px;vertical-align: middle;'>*</em>"));
+//})
+//$('.QIYEtipsWordCon p').each(function () {
+//    $(this).html($(this).html().replace(/([\d]+)/g, "*"));
+//})

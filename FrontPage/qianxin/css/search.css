@@ -1,0 +1,142 @@
+.Content-Main {
+    margin: auto;
+    border: none;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 1px 1px 1px #444;
+    color: #D3D3D3;
+    background-size: cover;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px #e2e9ee;
+}
+
+.text1 {
+    margin-left: 3px;
+}
+
+.Content-Main label {
+    margin: 0px 0px 5px;
+    display: block;
+}
+
+.fileInputContainer {
+    height: 99px;
+    width: 99px;
+    margin: 20px 20px 20px 20px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.fileInput {
+    height: 106px;
+    border: none;
+    font-size: 300px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    position: absolute;
+}
+
+.Content-Main label>span {
+    width: 20%;
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.Main-sex input[type=checkbox] {
+    margin-top: 6px;
+    vertical-align: middle;
+}
+
+.Content-Main input[type="text"],
+.Content-Main input[type="email"],
+.Content-Main input[type="number"],
+.Content-Main textarea {
+    width: 680px;
+    padding: 10px;
+    height: 48px;
+    border: 3px solid #f2f2f2;
+    background: #FFFFFF;
+    color: #202124;
+    font-size: 14px;
+    line-height: 48px;
+    border-radius: 5px;
+}
+
+.Content-Main textarea {
+    height: 100px;
+    width: 70%;
+    padding: 5px 0px 0px 5px;
+}
+
+.Content-Main .button {
+    padding: 8px 150px 8px 150px;
+    margin-bottom: 8px;
+    margin-left: 350px;
+    border: none;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #FFE477;
+    box-shadow: 1px 1px 1px #3D3D3D;
+    -moz-box-shadow: 1px 1px 1px #3D3D3D;
+    -webkit-box-shadow: 1px 1px 1px #3D3D3D;
+    color: #585858;
+    background: #FFFFE0;
+    
+}
+.Content-Main textarea {
+    width: 60%;
+    border: 1px solid #ccc;
+    padding: 7px 0px;
+    border-radius: 3px;
+    padding-left: 5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.Content-Main .button:hover {
+    color: #333;
+    background-color: #FFDEAD;
+}
+
+.shop-head-title {
+    background-color: #fff;
+    box-shadow: 0 2px 3px #e2e9ee;
+}
+
+.shop-head-content {
+    width: 1180px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.wrap {
+    background-color: rgb(240,242,245);
+    min-height: 900px
+}
+.content-wrap{
+    width: 60%;
+    max-width: 1100px;
+    position: relative;
+    top: 30px;
+    margin: auto;
+    background-color: rgb(240,242,245);
+}
+.add {
+    background-image:url('../assets/images/+.png');
+    background-size:100%;
+    background-color: #fff;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}

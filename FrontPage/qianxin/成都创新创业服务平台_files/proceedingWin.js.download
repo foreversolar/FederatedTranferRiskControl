@@ -1,0 +1,106 @@
+﻿function progressWin(resCtx){
+	
+	this.resctx = "";
+	if(resCtx){
+		this.resctx = resCtx;
+	}
+	this.bgObj = null;
+	this.msgObj = null;
+	
+	this.openWin = function(content,width,height){
+		//网页大小，宽度和高度，中心点,当前屏幕左上角右下角相对位置
+		  var webPage = (function () {
+		      var b = document.body;
+		      var e = document.documentElement;
+		      return {
+		          //当前网页的总大小
+		          size: function () {
+		              //结合上一篇博文中scrollXxx等几种属性的描述
+		              var w = Math.max(b.scrollWidth, b.offsetWidth, e.scrollWidth);
+		              var h = Math.max(b.scrollHeight, b.offsetHeight, e.scrollHeight);
+		              return { "width": w * 1, "height": h * 1 };
+		          },
+		          //当前视窗的屏幕中心位置
+		          center: function (pos) {//pos偏移{left:value,top:value}
+
+		              //当前视窗中心点位置相对网页左上角的像素位置＝当前视窗大小/2 + 滚动条偏移值
+		              var lt = this.leftTop();
+		              var x = e.clientWidth / 2 + lt.x;
+		              var y = e.clientHeight / 2 + lt.y;
+		              if (pos) {
+		                  if (pos.left * 1) {
+		                      x = x + pos.left * 1;
+		                  }
+		                  if (pos.top * 1) {
+		                      y = y + pos.top * 1;
+		                  }
+		              }
+		              return { "x": x, "y": y };
+		          },
+		          //当前视窗左上角相对当前网页左上角的像素位置＝＝滚动条偏移量
+		          leftTop: function () {
+		              //e.scrollLeft：IE下为偏移值，其它为0 ，b.scrollLeft:IE为0,Chrome等为偏移值
+		              return { "x": (b.scrollLeft + e.scrollLeft) * 1, "y": (b.scrollTop + e.scrollTop) * 1 };
+		          },
+		          //当前视窗右下角相对当前网页左上角的像素位置＝＝当前视窗大小+滚动条偏移量
+		          rightBottom: function () {
+		              var lt = this.leftTop();
+		              return { "x": e.clientWidth + lt.x, "y": e.clientHeight + lt.y };
+		          }
+		      }
+		  } ());
+		//alert(webPage.size()['width']+"            "+webPage.size()['height']);
+	    var bordercolor = "#336699"; 
+		var iWidth = Math.max(document.body.clientWidth, document.documentElement.clientWidth); 
+		var iHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight); 
+		var bHeight =document.documentElement.scrollTop+document.documentElement.clientHeight;
+		if(bHeight==0)
+			 bHeight =document.documentElement.scrollTop+document.documentElement.scrollHeight;
+		var bWidth =document.documentElement.scrollLeft+document.documentElement.clientWidth;
+		if(bWidth==0)
+			bWidth =document.documentElement.scrollLeft+document.documentElement.scrollWidth;
+		this.bgObj = document.createElement("div");
+		var bgFrame = document.createElement("iframe");
+		bgFrame.id="winFrame";
+		bgFrame.style.cssText = "position:absolute;left:0px;top:0px;width:"+webPage.size()['width']+"px;height:"+webPage.size()['height']+
+								"px;filter:Alpha(Opacity=30);opacity:0.3;background-color:#000000;z-index:9991;";
+		this.bgObj.style.cssText = "position:absolute;left:0px;top:0px;width:"+webPage.size()['width']+"px;height:"+webPage.size()['height']+
+		                      "px;filter:Alpha(Opacity=30);opacity:0.3;background-color:#000000;z-index:9991;";
+		document.body.appendChild(this.bgObj); 
+		this.bgObj.appendChild(bgFrame); 
+		
+		this.msgObj = document.createElement("div");
+		this.msgObj.style.cssText = "position:absolute;font:11px '宋体';top:"+bHeight/2+"px;left:"+bWidth/2+
+		                       "px;width:auto;height:auto;text-align:center;line-height:22px;margin:10px,padding:10px;z-index:9992;";
+		document.body.appendChild(this.msgObj);
+		
+		var imgObj = document.createElement("div");
+		this.msgObj.appendChild(imgObj);
+		imgObj.style.cssText = "margin-right:10px;float:left;";
+		imgObj.innerHTML = "<img src='/Web/template/TF/style/tx/images/spinner.gif' width='40px' height='40px' style='border:none;'/>";
+		
+		var waitObj = document.createElement("div");
+		this.msgObj.appendChild(waitObj);
+		waitObj.style.cssText = "float:left;";
+		if(content){
+			waitObj.innerHTML = content;         }
+//        else{
+//			waitObj.innerHTML = messageTip.pleaseWaitAmoment;
+//		}
+	};
+	
+	this.closeWin = function(){
+		if(this.bgObj && this.msgObj){
+			document.body.removeChild(this.bgObj);
+			document.body.removeChild(this.msgObj);
+			this.bgObj = null;
+			this.msgObj = null;
+			return true;
+		}
+		else
+			return false;
+	};
+}
+
+
+

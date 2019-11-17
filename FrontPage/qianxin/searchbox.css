@@ -1,0 +1,38 @@
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        height: 70px;
+        width: 800px;
+        margin:150px auto 0 auto;
+    }
+    .parent {
+        position: relative;
+    }
+    .search {
+        width: 600px;
+        height: 50px;
+        border-radius: 18px;
+        left: 100px;
+        outline: none;
+        border: 1px solid #ccc;
+        padding-left: 20px;
+        position: absolute;
+    }
+    
+    .btn {
+        width: 100px;
+        height: 50px; 
+        left: 600px;
+        border-radius: 18px;
+        position: absolute;
+        background: #317ef3;
+        border: 1px solid #317ef3;
+        color: #fff;
+        font-size: 16px;
+        outline: none;
+        cursor: pointer;
+
+    }

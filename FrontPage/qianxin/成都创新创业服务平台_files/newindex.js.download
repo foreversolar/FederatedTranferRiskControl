@@ -1,0 +1,777 @@
+﻿var _searchTimer;
+var _sy;
+jQuery(function ($) {
+    $(".search_condition").bind("mouseover", function () {
+        if (_searchTimer) {
+            clearTimeout(_searchTimer);
+            _searchTimer = null;
+        }
+        $(this).parent().find("ul").slideDown();
+    }).bind("mouseleave", function () {
+        var tThis = this;
+        _searchTimer = setTimeout(function () {
+            $(tThis).parent().find("ul").slideUp();
+        }, 500);
+    });
+    $(".search_con").find("ul").bind("mouseover", function () {
+        if (_searchTimer) {
+            clearTimeout(_searchTimer);
+            _searchTimer = null;
+        }
+    }).bind("mouseleave", function () {
+        var tThis = this;
+        _searchTimer = setTimeout(function () {
+            $(tThis).slideUp();
+        }, 500);
+
+    });
+    $(".search_con").find("li").bind("click", function (e) {
+        $(this).parent().parent().find(".search_condition").text($(this).text()).attr("value", $(this).attr("value"));
+        $(this).parent().slideUp();
+        e.stopPropagation();
+
+
+        if ($(this).attr("value") == "5") {
+            $("#KeyText").css("background", "none");
+        }
+        else {
+            
+            $("#KeyText").css("background", "#fff");
+        }
+    });
+    setTimeout(function () {
+       //$("#ShouYebanner").slideImage({ height: 258, slid: false, showhd: false }); //动
+        $("#ShouYebanner").slideImage({ height: 250, speed: 5000, showhd: false }); //不动
+        //$("#ShouYebanner2").slideImage({ height: 189, speed: 5000, showhd: false }); //动
+        //$("#ShouYebanner").slideImage({ height: 258, slid: false, showhd: false }); //不动
+        $("#ShouYebanner3").slideImage({ height: 260, speed: 5000, showhd: false }); //动
+    });
+    setTimeout(function () {
+        $("#ShouYebanner1").slideImage({ height: 367, speed: 5000, showhd: false }); //动
+    });
+});
+(function ($) {
+    $.fn.tabSwitch = function () {
+        $(this).find(".C_column_title").find("a").bind("mouseover", function () {
+            var index = $(this).prevAll().length;
+            $(this).parent().children(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            $(this).parent().parent().find(".C_column_content").children().hide();
+            $(this).parent().parent().find(".C_column_content").children().eq(index).show();
+        });
+    };
+      $.fn.Marquee = function (setting) {
+        setting = setting || {};
+        return this.each(function () {
+            var that = this;
+            var lis = $(this).children();
+            var option = $(this).data("options");
+            if (!option) {
+                if ($(this).height() <= $(this).parent().height()) return;
+                option = $.extend({
+                    time:1500, interval: function () {
+                        var _that = this;
+                        var nli = $(this).children().eq(option.cindex).clone();
+                        $(this).animate({
+                            top: -$(this).children().eq(option.cindex).outerHeight()
+                        }, function () {
+                            $(_that).children().eq(option.cindex).remove();
+                            $(_that).css({ "top": 0 });
+                            $(_that).append(nli);
+                        });
+                    }
+                }, setting);
+                $(this).data("options", option);
+                option.cindex = 0;
+                option.timer = setInterval(function () {
+                    option.interval.call(that);
+                }, option.time);
+                $(that).bind("mouseover", function () {
+                    if (option.timer) clearInterval(option.timer);
+                }).bind("mouseleave", function () {
+                    option.timer=setInterval(function(){option.interval.call(that);},option.time);
+                });
+            }
+        });
+    };
+})(jQuery);
+(function ($) {
+    $.fn.slideImage = function (setting, param) {
+        if (typeof setting == "string") {
+            var mt = $.fn.slideImage.methods[setting];
+            if (mt) {
+                return mt(this, param);
+            }
+        }
+        setting = setting || {};
+        return this.each(function () {
+            var data = $.data(this, "slideImage");
+            if (data) {
+                $.extend(data.options, setting);
+            }
+            else {
+                data = $.data(this, "slideImage", { options: $.extend({}, $.fn.slideImage.defaults, setting) });
+                renderSlideImage(this);
+            }
+        });
+    };
+    //新加
+    $.fn.imageRun = function (settings, param) {
+        if (typeof settings == "string") {
+            if ($.fn.imageRun.methods[settings]) {
+                $.fn.imageRun.methods[settings](this, param);
+            }
+        }
+        else {
+            settings = settings || {};
+            this.each(function () {
+                var children = $(this).children();
+                var length = children.length;
+                var width = settings.preWidth * length;
+                $(this).height(settings.preHeight);
+                var top = (settings.preHeight - 50) / 2;
+                var defaultOption = {
+                    timer: 3000, //动画间隔时间
+                    index: 0//起始索引
+                };
+                var options = $.extend({}, defaultOption, settings);
+                $(this).data("imageRun", options);
+                if (width > $(this).width()) {
+                    $(children).wrapAll("<div class='runImg_con' style='position:absolute;left:0px; width:" + width + "px;'></div>");
+                }
+                $(this).append("<span class='prev' style='top:" + top + "px;'></span><span class='next' style='top:" + top + "px;'></span>");
+                var that = this;
+                options.timeout = setTimeout(function () {
+                    $(that).imageRun("run");
+                }, options.timer);
+
+                $(this).find(".next").bind("click", function () {
+                    if (options.timeout)
+                        clearTimeout(options.timeout);
+                    $(that).imageRun("run");
+                });
+                $(this).find(".prev").bind("click", function () {
+                    if (options.timeout)
+                        clearTimeout(options.timeout);
+                    $(that).imageRun("back");
+                });
+            });
+        }
+    };
+    $.fn.imageRun.methods = {
+        run: function (dom) {
+            dom.each(function () {
+                var option = $(this).data("imageRun");
+                if (option.timeout) clearTimeout(option.timeout);
+                var that = this;
+                var width = option.preWidth;
+                var left = $(this).find(".runImg_con").css("left");
+                left = parseInt(left);
+                $(this).find(".runImg_con").animate({
+                    left: left - width
+                }, function () {
+                    $(that).find(".runImg_con").append($(that).find(".runImg_con").children().first().clone());
+                    $(that).find(".runImg_con").children().first().remove();
+                    $(that).find(".runImg_con").css("left", 0);
+                });
+                option.timeout = setTimeout(function () {
+                    $(that).imageRun("run");
+                }, option.timer);
+            });
+        },
+        back: function (dom) {
+            dom.each(function () {
+                var options = $(this).data("imageRun");
+                if (options.timeout) clearTimeout(options.timeout);
+                var that = this;
+                var width = options.preWidth;
+                $(that).find(".runImg_con").prepend($(that).find(".runImg_con").children().last().clone());
+                $(that).find(".runImg_con").children().last().remove();
+                $(that).find(".runImg_con").css("left", -width);
+                $(this).find(".runImg_con").animate({
+                    left: 0
+                });
+                options.timeout = setTimeout(function () {
+                    $(that).imageRun("run");
+                }, options.timer);
+            });
+        }
+    };
+    $.fn.slideImage.defaults = {
+        speed: 3000, //移动时间，单位毫秒，默认600  
+        slid: true,
+        showhd: true
+    };
+    $.fn.slideImage.methods = {
+        next: function (obj) {
+            var options = $.data(obj[0], "slideImage").options;
+            // if (options.runing) return;
+            var index = options.index || 0;
+            next = index + 1;
+            if (obj.children().not(obj.find(".action")).length <= next) next = 0;
+            if (options.slid) {
+                options.timer = setTimeout(function () {
+                    obj.slideImage("showIndex", next);
+                    obj.slideImage("next");
+                }, options.speed);
+                //   console.log("1:" + options.timer);
+            }
+
+        },
+        showIndex: function (obj, index) {
+            var options = $.data(obj[0], "slideImage").options;
+            var color = options.pointColor || "#fff";
+            var current = options.index;
+            // options.runing = true;
+            if (options.timer) {
+                // console.log("2:" + options.timer);
+                clearTimeout(options.timer);
+                options.timer = null;
+            }
+
+            if (current != index) {
+                obj.children().eq(current).fadeOut("slow");
+                obj.children().eq(index).fadeIn("slow");
+                options.index = index;
+                if (!options.showhd) {
+                    obj.find(".slide_point").eq(current).css({ 'background-color': color });
+                    obj.find(".slide_point").eq(index).css({ 'background-color': '#ff9819' });
+                    try {
+                        if (obj.find("img").eq(index).attr("abc") == "99") {
+                            $("#QrhRegisteredaa").hide();
+                            $("#AppRegisteredaa").show();
+                        }
+                        else {
+                            $("#QrhRegisteredaa").show();
+                            $("#AppRegisteredaa").hide();
+                        }
+                    } catch (e)
+                    { }
+                }
+            }
+        },
+        StopAndStart: function (obj, type) {
+            var options = $.data(obj[0], "slideImage").options;
+            if (type != "-1") {
+                obj.slideImage("showIndex", type);
+                if (options.timer) {
+                    clearTimeout(options.timer);
+                }
+            }
+            else {
+                obj.slideImage("next");
+            }
+        }
+    };
+
+    function renderSlideImage(_obj) {
+        var obj = $(_obj);
+        var options = $.data(obj[0], "slideImage").options;
+        options.index = 0;
+        var color = options.pointColor || "#fff";
+        var children = obj.children().not(obj.find(".action"));
+        var length = children.length;
+        if (length <= 1) return;
+        children.css({ position: 'absolute', left: 0, right: 0 });
+        var width = children.first().width();
+        var height = options.height || children.first()[0].scrollHeight;
+        obj.css({ position: 'relative', width: "100%", height: height });
+        children.hide();
+        children.first().show();
+        obj.bind("mouseover", function () {
+            clearTimeout(options.timer);
+        });
+        obj.bind("mouseleave", function () {
+            if (options.slid) {
+                options.timer = setTimeout(function () {
+                    obj.slideImage("next");
+                }, options.speed);
+            }
+        });
+        var action = $("<div>", {
+            "class": "action",
+            css: {
+                position: "absolute",
+                width: "100%",
+                bottom: 0,
+                left: 0,
+                "padding-top": "10px",
+                "padding-bottom": "10px",
+                "text-align": "right"
+            }
+        });
+        if (!options.showhd) {
+            for (var i = 0; i < length; i++) {
+
+                $("<span>", {
+                    'class': 'slide_point',
+                    index: i,
+                    css: {
+                        width: 14,
+                        height: 14,
+                        'margin-right': 6,
+                        'margin-left': 6,
+                        'margin-bottom': 2,
+                        display: 'inline-block',
+                        'border-radius': '7px 7px 7px 7px',
+                        cursor: 'pointer',
+                        'background-color': color
+                    }
+                }).appendTo(action).bind("click", function (e) {
+                    var index = parseInt($(this).index()) || 0;
+                    obj.slideImage("showIndex", index);
+                    e.stopPropagation();
+                }); //bind("mouseover", function (e) { e.stopPropagation(); }).bind("mouseout", function (e) { e.stopPropagation();});
+            }
+
+            obj.append(action);
+            obj.find(".slide_point").first().css({ 'background-color': '#ff9819' });
+        }
+        if (options.slid) {
+            options.timer = setTimeout(function () {
+                obj.slideImage("next");
+            }, options.speed);
+        }
+    }
+})(jQuery);
+
+function searchCondition(setting) {
+    setting = setting || {};
+    this.selector = setting.selector || "";
+    this.onClickItem = setting.onClickItem || function () { };
+}
+searchCondition.prototype.render = function (data) {
+    if (!this.selector || !data) return;
+    var that = this;
+    var con = $(this.selector);
+    con.append("<ul></ul>");
+    for (var item in data) {
+        var ili = $("<li>").data("field", item);
+        ili.append("<span class='txt'>" + (data[item].title || "") + "</span><span class='item'></span>");
+        if (data[item].options) {
+            for (var i = 0; i < data[item].options.length; i++) {
+                $("<a>", {
+                    href: "javascript:void(0):"
+                }).data("data", data[item].options[i]).text(data[item].options[i].text).bind("click", function (e) {
+                    that.clickItem.call(this, e, that);
+                }).appendTo(ili.find(".item"));
+            }
+        }
+        con.find("ul").append(ili);
+    }
+    con.find("li").last().attr("class", "last");
+};
+searchCondition.prototype.clickItem = function (e, that) {
+    if ($(this).hasClass("selected")) {
+        $(this).removeClass("selected");
+    }
+    else {
+        $(this).addClass("selected");
+    }
+    that.onClickItem.call(that);
+};
+searchCondition.prototype.getData = function () {
+    if (!this.selector) return null;
+    var lis = $(this.selector).find("li");
+    var data = {};
+    for (var i = 0; i < lis.length; i++) {
+        var ida = lis.eq(i).data("field");
+        var vs = [];
+        lis.eq(i).find("a.selected").each(function () {
+            vs.push($(this).data("data").value);
+        });
+        data[ida] = vs.join(",");
+    }
+    return data;
+};
+(function ($) {
+    $.fn.floatPanel = function (setting, param) {
+        setting = setting || {};
+        if (typeof setting == "string" && $.fn.floatPanel.method[setting]) {
+            return $.fn.floatPanel.method[setting](this, param);
+        }
+        return this.each(function () {
+            var optionData = $.data(this, "floatPanel");
+            if (optionData) {
+                $.extend(optionData.options, setting);
+                var tT = this;
+                if (optionData.options.panel && optionData.options.panel.css("display") == "none") {
+                    optionData.options.panel.slideDown();
+                }
+            }
+            else {
+                optionData = $.data(this, "floatPanel", { options: $.extend({}, $.fn.floatPanel.defaults, setting) });
+                optionData.options.init.call(this);
+            }
+        });
+    };
+    $.fn.floatPanel.defaults = {
+        showClose: !1, //显示关闭按钮
+        autoHide: !0, //是否自动隐藏
+        container: "body", //相对容器
+        init: function () {//初始化面板
+            var options = $(this).data("floatPanel").options;
+            if (!options) return;
+            var con = $(options.container);
+            var direction = options.getDirection.call(this);
+            var offset = $(this).offset();
+            var tT = this;
+            var right = "auto";
+            var left = offset.left - con.offset().left;
+            if (left + options.width + con.offset().left > $(window).width()) {
+                left = "auto";
+                right = 0;
+            }
+            var top = offset.top;
+            var width = options.width;
+            var height = options.height;
+            var bHeight = Math.max($(window).height(), $("body").outerHeight());
+            var bottom = bHeight - top;
+            var html = "";
+            if (con.css("position") != "static") {
+                if (direction == "down") top = $(this).outerHeight();
+                else if (direction == "up") bottom = con.outerHeight() - $(this).offset().top + con.offset().top;
+            }
+            else {
+                top = top + $(this).outerHeight();
+            }
+            function showPanel(e) {
+                if (options.timer) {
+                    clearTimeout(options.timer);
+                    options.timer = null;
+                }
+                e.stopPropagation();
+            }
+            function hidePanel() {
+                clearTimeout(options.timer);
+                options.timer = setTimeout(function () {
+                    $(tT).unbind("mouseenter", showPanel);
+                    panel.hide();
+                }, 500);
+
+            }
+            var panel = $("<div>", {
+                'class': 'floatPanel_panel ' + (options.css || ""),
+                css: {
+                    left: left,
+                    right: right,
+                    bottom: direction == "down" ? "auto" : bottom + 11,
+                    top: direction == "up" ? "auto" : top + 11,
+                    width: width,
+                    height: height
+                }
+            }); //.append("<iframe frameborder='0'  style='width:100%; height:100%; position:absolute; left:0px; top:0px; z-index:0;'></iframe");
+            panel.append("<span class='arrow'></span>");
+            panel.body = $("<div>", {
+                "class": "floatPanel_panel_body",
+                css: {
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    "z-index": 1
+                }
+            }).appendTo(panel);
+            $(tT).bind("click", function (e) { e.stopPropagation(); });
+            panel.bind("click", function (e) { e.stopPropagation(); });
+            if (options.autoHide) {
+                panel.bind("mouseenter", function (e) {
+                    if (options.timer) {
+                        clearTimeout(options.timer);
+                        options.timer = null;
+                    }
+                    $(tT).unbind("mouseenter", showPanel);
+                    $(tT).bind("mouseenter", showPanel);
+                    e.stopPropagation();
+                }).bind("mouseleave", hidePanel).bind("click", function (e) { e.stopPropagation(); });
+                $(tT).bind("mouseleave", hidePanel)
+            }
+            else {
+                $("body").bind("click", hidePanel);
+            }
+            if (options.showClose) {
+                $("<a>", {
+                    'class': 'close_btn',
+                    href: "javascript:void(0)",
+                    text: "×"
+                }).appendTo(panel).bind("click", function () {
+                    if (options.timer) {
+                        clearTimeout(options.timer);
+                        options.timer = null;
+                    }
+                    $(tT).floatPanel("hide");
+                });
+            }
+            options.panel = panel;
+            con.append(panel);
+            options.onRenderAfter.call(this);
+            panel.slideDown();
+        },
+        getDirection: function () {//获得面板打开方向，默认向下down,down：向下,up:向上
+            var direction = "down";
+            var options = $(this).data("floatPanel").options;
+            if (!options) return;
+            var height = options.height;
+            var top = $(this).offset().top;
+            var wheight = $(window).height();
+            var bodyHeight = $("body").outerHeight();
+            var bHeight = wheight;
+            if ((bHeight - top) > height) direction = "down";
+            else if (height < top) direction = "up";
+            return direction;
+        },
+        //当面板渲染结束时执行
+        onRenderAfter: function () { },
+        width: 400, //面板宽度
+        height: 200//面板高度
+    };
+    $.fn.floatPanel.method = {
+        show: function (jq) {//显示面板
+            var options = $.data(jq[0], "floatPanel").options;
+            if (options.panel) {
+                options.panel.slideDown();
+            }
+        },
+        hide: function (jq) {//隐藏面板
+            var options = $.data(jq[0], "floatPanel").options;
+            if (options.panel) {
+                options.panel.fadeOut();
+            }
+        },
+        reSize: function (jq, size) {
+            if (typeof size == "object") {
+                var options = $.data(jq[0], "floatPanel").options;
+                if (options.panel) {
+                    if (size.width)
+                        options.panel.width(size.width);
+                    if (size.height)
+                        options.panel.height(size.width);
+                }
+            }
+        }
+    };
+})(jQuery);
+
+
+
+(function () {
+    $.fn.placeholder = function (settings) {
+        var span = $("<span>", {
+            css: {
+                'position': 'relative',
+                'background-color': '#fff',
+                'display': 'inline-block',
+                'width':'auto',
+                'text-align':'left'
+            }
+        });
+        $(this).wrap(span);
+        $(this).css({ "background": "none", "position": "relative", "z-index": "1" });
+        $(this).after("<span style='position:absolute; width:auto; text-align:left; text-indent:10px; line-height:" + ($(this).height()+4) + "px; z-index:0; display:inline-block; color:#ddd;width:100%; height:100%;left:0px; top:0px;'>" + settings + "</span>");
+        if($(this).val()!="")
+        {
+           $(this).css("background", "#fff");
+        }
+        function inputKeyup() {
+            var value = $.trim($(this).val());
+            if (value) {
+                $(this).css("background", "#fff");
+            }
+            else {
+                $(this).css("background", "none");
+            }
+        }
+        $(this).bind("keyup", inputKeyup);
+    };
+})(jQuery);
+
+//--2016-5-6新增
+$.fn.slide = function (settings, params) {
+    if (typeof settings == "string") {
+        var fn = $.fn.slide.method[settings];
+        if (fn) fn(this, params);
+    } else {
+        settings = settings || {};
+        var options = $(this).data("options");
+        if (!options) {
+            options = $.extend({
+                current: 0,
+                spaceTime: 5000
+            }, settings);
+            $(this).data("options", options);
+            $.fn.slide.init(this);
+        }
+    }
+
+};
+
+
+
+$.fn.slide.init = function (obj) {
+    var child = $(obj).children("div");
+    child.addClass("slide_item");
+    var $bar = $("<div>", {
+        'class': 'bar'
+    });
+    for (var i = 0; i < child.length; i++) {
+        $bar.append("<span></span>");
+    }
+    $(obj).append($bar);
+    var options = $(obj).data("options");
+    var current = options.current || 0;
+    child.hide();
+    child.eq(current).show();
+    $bar.find("span").eq(current).addClass("cur");
+    $(obj).slide("play");
+    $(obj).hover(function () {
+        $(this).slide("stop");
+    }, function () {
+        $(this).slide("play");
+    });
+    $bar.find("span").bind("click", function () {
+        var index = $(this).prevAll().length;
+        $(obj).slide("goto", index);
+    });
+};
+$.fn.slide.method = {
+    goto: function (obj, index) {
+        var options = $(obj).data("options");
+        var current = options.current;
+        options.current = index;
+        $(obj).find(".slide_item").eq(current).fadeOut();
+        $(obj).find(".slide_item").eq(index).fadeIn();
+        $(obj).find(".bar .cur").removeClass("cur");
+        $(obj).find(".bar> span").eq(index).addClass("cur");
+    },
+    play: function (obj) {
+        var options = $(obj).data("options");
+        var spaceTime = options.spaceTime;
+        if (options.timer) {
+            clearInterval(options.timer);
+            options.timer = null;
+        }
+
+        options.timer = setInterval(function () {
+            var next = options.current + 1;
+            if (next >= $(obj).find(".slide_item").length) {
+                next = 0;
+            }
+            $(obj).slide("goto", next);
+        }, spaceTime);
+    },
+    stop: function (obj) {
+        var options = $(obj).data("options");
+        if (options.timer) {
+            clearInterval(options.timer);
+            options.timer = null;
+        }
+    }
+};
+
+$.fn.scroll = function (settings, params) {
+    if (typeof settings == "string") {
+        var fn = $.fn.scroll.method[settings];
+        if (fn) fn(this, params);
+    } else {
+        settings = settings || {};
+        var options = $(this).data("scroll");
+        if (!options) {
+            options = $.extend({}, settings);
+            $(this).data("scroll", options);
+            $.fn.scroll.init(this);
+        }
+    }
+};
+$.fn.scroll.init = function (obj) {
+    var options = $(obj).data("scroll");
+    var $left, $right;
+    if (options.prevButton) {
+        $left = $(options.prevButton);
+        $left.bind("click", function () {
+            $(obj).scroll("prev");
+        });
+    }
+    if (options.nextButton) {
+        $right = $(options.nextButton);
+        $right.bind("click", function () {
+            $(obj).scroll("next");
+        });
+    }
+};
+$.fn.scroll.method = {
+    prev: function (obj) {
+        var options = $(obj).data("scroll");
+        var sl = $(obj).scrollLeft();
+        var cw = $(obj).width();
+        var s = sl - cw;
+        if (s < 0) s = 0;
+        $(obj).animate({
+            scrollLeft: s
+        });
+    },
+    next: function (obj) {
+        var options = $(obj).data("scroll");
+        var sl = $(obj).scrollLeft();
+        var cw = $(obj).width();
+        var s = sl + cw;
+        $(obj).animate({
+            scrollLeft: s
+        });
+    }
+};
+$.fn.marqueeNew = function (settings) {
+    settings = settings || {};
+    var options = $.extend({
+        interval: 2000
+    }, settings);
+    var timer = null;
+    var that = this;
+
+    function run() {
+        timer = setInterval(function () {
+            var $first = $(that).children().first();
+            var h = $first.height();
+            $(that).parent().animate({
+                scrollTop: h
+            }, 500, function () {
+                $(that).children().first().appendTo($(that));
+                $(that).parent().scrollTop(0);
+            });
+
+        }, options.interval);
+    }
+    $(this).hover(function () {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }, function () {
+        run();
+    });
+    run();
+}
+
+
+
+function switchTab(settings) {
+    this.selector = settings.selector;
+    this.eventName = settings.eventName || "mouseover";
+    this.init();
+}
+
+switchTab.prototype.init = function () {
+    if (!this.selector || $(this.selector).length == 0) return;
+    var _id = this.selector;
+    var dom = $(this.selector);
+    var bar = dom.find(".tab_bar");
+    function _switch(e) {
+        if ($(this).hasClass("selected")) return;
+        var index = $(this).prevAll().length;
+        var dom = $(this).parents(_id);
+        var con = dom.find(".tab_content_switch");
+        con.children().hide();
+        con.children().eq(index).show();
+        $(this).siblings(".selected").removeClass("selected");
+        $(this).addClass("selected");
+    }
+    bar.children().bind(this.eventName, _switch);
+};

@@ -1,0 +1,99 @@
+var errorMsg = new Array();// 错误消息集合
+/**
+ * 验证table里有空就完整填写 针对表格里都为必添 例:irisJqValEmpty("tabid","经费信息请完整填写");
+ */
+function irisJqValEmpty(obj, msg) {
+	
+	var sum=0;
+	obj.find(":input[type!=hidden],textarea").each(function() {
+		if($(this).val()==''){
+			sum+=1;
+		}
+	});
+	if(sum!=0)
+	irisValaddMsg(msg);
+	
+}
+/**
+ * 检查验证结果
+ * 
+ * @returns {Boolean}
+ */
+function valResult() {
+	if (errorMsg.length == 0)
+		return true;
+	else
+		return false;
+}
+
+
+function irisValZipByObj(obj){
+	var str = getTagValueByJq(obj);
+	
+	//验证邮政编码
+	var matchArray = str.match(/^[0-9]{6}$/);
+	if (str != "" && matchArray == null) {
+		var strLaber = "";
+		if (obj.attr("label") != null) {
+			strLaber = obj.attr("label");
+		}
+		irisValaddMsg("[name]的格式不符合规范，请重新填写".replace("[name]", strTitle + strLaber));
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * 验证同样的Obj最少要填写一个
+ * 
+ * @param objName
+ * @param min
+ * @returns {Boolean}
+ */
+function irisValReqMinByObj(obj, min) {
+	var objName = obj.attr("name").substring(0,
+			obj.attr("name").lastIndexOf("_"));
+	var num = 0;
+	$("[name*='" + objName + "_']").each(function() {
+		if ($(this) != null && $(this).val() != "") {
+			num = num + 1;
+		}
+	});
+	if (num < min) {
+		var strLaber = "";
+		if (obj.attr("label") != null) {
+			strLaber = obj.attr("label");
+		}
+
+		irisValaddMsg(messageTip.reqmin.replace("[name]", strTitle + strLaber)
+				.replace("[min]", min));
+		return false;
+	} else {
+		return true;
+	}
+}
+/** 添加错误消息* */
+function irisValaddMsg(strValue) {
+	if (strValue != "")
+		addArrValue(errorMsg, strValue);
+}
+function addArrValue(arrObj, strValue) {
+	arrObj[arrObj.length] = strValue;
+}
+/** 添加错误消息* */
+
+/**
+ * 显示错误消息
+ */
+function irisValShowMsg(jqObj) {
+	var strHtml = "";
+	for ( var i = 0; i < errorMsg.length; i++) {
+		strHtml = strHtml + (i + 1) + ":" + errorMsg[i] + "<br>";
+	}
+	errorMsg = new Array();
+	showBox(jqObj, "300px", "200px", "提示", strHtml);
+}
+
+
+
